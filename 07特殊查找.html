@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var _
+        console.log(_name) //undifined
+        // 问题：往上找没有赋值？
+
+        var _name = 'gukun'
+        var age = '25'
+        var dec = '养天地之灵气'
+        console.log(_name,age,dec)
+        // 声明了三个变量！！
+
+        // 默认var声明的变量提升到你看不到的地方的最顶端
+        //声明提升单赋值不提升
+
+        // 已经声明 未赋值 结果为undifined
+        // 没有声明的变量被使用了；会报错。xxx is not defined
+
+        // 总结变量的使用规则
+        //第一：整个文件中查找看有没有var变量 ------>  没有 xxx is not defined
+        //第二：----> 有的话使用时候；往上找；看距离她最近的一次赋值是多少，是什么就用什么
+    </script>
+</body>
+</html>
