@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            对象语法：{key；value}
+            1.对象可以是key：value键值对象的存在
+            2.所有的key都是string类型
+            3.value可以为任意的js数据类型
+            4.key 不能重复
+            5.不会因为key报出 key is not defined错误
+            6，key  可以是undefined
+            7.可以链式打点获取属性的值
+        */
+        var obj = {
+            name:"顾坤",
+            age:23,
+            arr:['11'],
+            desciption:'这小子真帅'
+        }
+        //如何获取对象下属性所对应的值？
+        // var res = obj['arr']
+        var res = obj.arr[0]
+        console.log(res)
+    </script>
+</body>
+</html>

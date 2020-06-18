@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ++ 给自己加一    
+
+        // var x = 1    
+        //****** 1.先给y赋值 x=1 再让x自增加一     先赋值再运算
+        // var y = x ++
+        // console.log(y,x)
+
+        // var a = 1
+        //***** 1.先给a自增1 a = 2              先运算再赋值
+        // *****2.再给b赋值a
+        // var  b = ++ a 
+        // console.log(b,a)
+
+        var l = 1;
+        var q = 2;
+        var res = (++l+l++)-3* (q++-++q)-q++;
+            res = (++1+l++)-3* (q++-++q)-q++;
+            res = (2+2++)-3* (q++-++q)-q++;
+            res = (4)-3* (q++-++q)-q++;   // 2++===> l = 3 
+            res = 4-3* (2++-++q)-q++;   // 2++===> l = 3 
+            res = 4-3* (2-++3)-q++;   // q =3
+            res = 4-3* (2-4)-q++;   // q =4
+            res = 4-3* (2-4)-4++;   // q =4
+            res = 4-3* (-2)-4++;   // q =4
+            res = 4-(-6)-4++;   // q =4
+            res = 10 -4++;   // q =4
+            res = 6 // q=5
+
+        console.log(res,l,q)
+
+    </script>
+</body>
+</html>
