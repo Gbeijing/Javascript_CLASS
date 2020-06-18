@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  persetFloat()  将其他数据类型转化为浮点型
+
+        console.log(parseFloat('11.34444.555')) // 11.34444  第二个小数点无效
+        console.log(parseFloat('0000051234')) // 省略前面的0
+        console.log(parseFloat('000000lkyyy4525'))  //0   省略0 的非数组字符
+        console.log(parseFloat('0xf'))      //0   16进制为0
+        console.log(parseFloat(''))         //NaN 空字符串为NaN
+        console.log(parseFloat('gukun'))   //NaN  开头非数字非空字符
+        console.log(parseFloat('0gukun'))  //0  从第一个开始 找到第一个非数组字符
+        console.log(parseFloat('0123gukun'))  // 123
+        console.log(parseFloat('123gukun'))  // 123
+        
+
+
+    </script>
+</body>
+</html>

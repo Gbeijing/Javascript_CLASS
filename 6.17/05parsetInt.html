@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // paseInt()作用是转化为整数型
+        // ----->将其他数据转化为数值的整数型的时候用
+
+            //1.忽略字符串前面的空格，直到找到第一个非空格字符
+            // 2.如果第一个字符不是数字或者是负号，返回NaN
+            // 3.空字符串，返回NaN
+            // 4.如果第一个字符是数字，会继续解析第二个字符，直到解析完所有后续字符或遇到了一个非数字字符。
+            // 5.如果字符串以0x开头且后面跟数字字符，就会将其转为10进制数，同样，八进制也一样。
+            // 开头为0的字符串  转化后忽略前面的0找到第一个非零数字字符返回数字
+                //返回数组，非零非数字字符  返回0
+
+        var str = '      1322'
+        var str1 = '      2a1322'
+        console.log(parseInt(str),parseInt(str1))
+
+        var str2 = '211a1322'
+        console.log(parseInt(str2))
+
+        var str3 = ''
+        console.log(parseInt(str3))
+
+        var str4 = '0xf'
+        console.log(parseInt(str4))
+
+        var str5 = 1.2
+        console.log(parseInt(str5))
+
+        var str6 = '0x70'
+        console.log(parseInt(str6))
+
+        var str7 = 0
+        console.log(parseInt(str7))
+    </script>
+</body>
+</html>

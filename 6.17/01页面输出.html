@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        页面输出：做调试bug  或者推理业务在哪里出现问题
+     -->
+     <script>
+        //    打印日志：
+        // 传入任意的js数据类型   字符串  变量
+        // 查看的是  在某一变量在执行到某一行的时候；赋值的内容是什么
+        //------>日志一下的值到底是什么类型的值
+        //注意  打印日志  不会阻止下面代码的执行；同步代码(块)
+        console.log('=======')
+        console.log(true)
+        console.log(['name'],12)
+        
+        // alert 是弹框 可以阻止下面代码执行  类似是打断点
+        alert('eeee')
+        console.log('hhhhhhlog')
+
+     </script>
+</body>
+</html>

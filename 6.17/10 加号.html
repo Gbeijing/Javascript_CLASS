@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 什么时候是算数运算符？什么时候是链接运算符？
+         
+         // 只要操作数是字符串：无论是转化前还是后，都是连接运算符
+         // ----->所有与字符串相加的数据返回值都是字符串d
+
+         var res ={name:'gukun'}+1
+         console.log(typeof res , res)
+
+         var res1 = [1 , 'gu'] + {}
+            //  res1 = '1 ,gu' + {}
+            // res1 = 1,gu[object Object]
+         console.log(typeof res1 , res1)//string 1,gu[object Object]
+
+         var res2 = (true + 123) + ''
+                res2 = 1+123+''
+                res2 = 124+0
+         
+    </script>
+</body>
+</html>

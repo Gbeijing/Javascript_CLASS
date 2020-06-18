@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        其他类型转布尔值  除了false其他都为true
+          空  0 null undefined NaN
+     -->
+     <script>
+         console.log(Boolean(''))
+         console.log(Boolean(null))
+         console.log(Boolean(undefined))
+         console.log(Boolean(NaN))
+         console.log(Boolean(0))
+         console.log(Boolean(1))
+         console.log(Boolean([]))  //true 注意是数据转化  不是运算
+         console.log(Boolean({}))
+         console.log(Boolean('123'))
+        // 为什么[] 和{}转为的是true？
+
+        // 显式转化只有数据类型的转化
+        // 隐式转化发生在运算中
+
+     </script>
+</body>
+</html>

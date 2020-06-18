@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 逻辑运算符表达式：返回值一定是布尔值
+        // 逻辑运算 涉及到比较大小，什么类型数据能比较大小？(数字)
+
+        var res = '' == []
+            console.log(res)//--->true
+
+        var res = '' === []
+        console.log(res)//--->false
+
+        //字符串与字符串比较时候
+        // 1.不看长度
+        // 2.第一个字符与第一个的编码(ASCII与UNICODE)比较，比不出来以此类推
+        // .charCodeAt()----->获取字符的Unicode编码值
+        console.log('王宇航老色胚'.charCodeAt())
+
+        var res1 = [] >{}
+            // res []=''=0
+            // res {}=NaN
+        console.log(res1)//--->false
+
+    </script>
+</body>
+</html>
