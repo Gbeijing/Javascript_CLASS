@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //完成需求
+            var data
+        //如何保证一个变量一定是number
+        console.log(typeof data==='number')
+        console.log(data.constructor===Number)
+        //如何保证一个变量一定是string
+        console.log(typeof data==='string')
+        console.log(data.constructor===String)
+        //如何保证一个变量一定是boolean
+        console.log(typeof data==='boolean')
+        console.log(data.constructor===Boolean)
+        //如何保证一个变量一定是null
+        console.log( data === null)
+        //如何保证一个变量一定是undefined
+        console.log(typeof data === 'undefined')
+        //如何保证一个变量一定是数组
+        console.log(data.constructor===Array)
+        console.log(data instanceof Array)
+        Array.isArray(date)
+        //如何保证一个变量一定是对象
+        console.log(data.constructor===Object)
+        //如何保证一个变量一定是函数
+        console.log(typeof data === 'function')  
+        console.log(data.constructor === Function) 
+
+
+
+        //如何判断一个变量不是number类型
+        var res11 = typeof date =='number'
+
+        //如何让变量赋值是number或者字符串
+        var res12 = typeof date == 'number' ||  typeof date  =='string'
+
+        //如何让数组是数组或者变量
+        var res13 = data instanceof Object
+        var res14 = date.constructor==Array
+
+        //练习题
+        var a;
+        var b;
+        var c;
+        //需求  a不能是number并且b 必须是数组或者c是字符串
+        var res = typeof a != 'number' && Array.isArray(b) || c.constructor===String
+    </script>
+</body>
+</html>

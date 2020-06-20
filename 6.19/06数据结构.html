@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组中一般放入相同的数据类型 要么都是数组要么是字符串
+        // 对象中存放的是不同的数据结构
+        //每一个数组都有意义的;既要让数据复合html结构;又要让意义想符合
+
+        //目标:看到页面能够分析出你要的结构
+        
+        //**********锻炼自己:根据页面结构;分析需要的数据结构;************
+        //在js中轮播图的数据存在的方式
+        var swipers = [
+            'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg',
+            'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3314189121,1022414755&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg'
+        ]
+        var nav = [
+            {
+                title:'会员中心',
+                icon:'iconfont1'
+            },  {
+                title:'种草特辑',
+                icon:'iconfont2'
+            },  {
+                title:'特选品牌',
+                icon:'iconfont3'
+            },  {
+                title:'领券中心',
+                icon:'iconfont4'
+            },  {
+                title:'签到',
+                icon:'iconfont5'
+            }
+        ]
+        var classify = [
+            {big_dec:'2132', small_dec:'12313'},
+            {big_dec:'2132', small_dec:'12313'},
+            {big_dec:'2132', small_dec:'12313'},
+            {big_dec:'2132', small__dec:'12313'}
+        ]
+        var footer = [
+            {pic:'图片',dec:'daisy',price:'99.0',sold:'已售899件'},
+            {pic:'图片',dec:'daisy',price:'99.0',sold:'已售899件'},
+            {pic:'图片',dec:'daisy',price:'99.0',sold:'已售899件'},
+            {pic:'图片',dec:'daisy',price:'99.0',sold:'已售899件'},
+            {pic:'图片',dec:'daisy',price:'99.0',sold:'已售899件'},
+            {pic:'图片',dec:'daisy',price:'99.0',sold:'已售899件'},
+            {pic:'图片',dec:'daisy',price:'99.0',sold:'已售899件'}
+        ]
+
+        var header = {
+            swipers:[
+            'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3314189121,1022414755&fm=26&gp=0.jpg'
+            ],
+            nav:[
+                {
+                    title:'会员中心',
+                    icon:'iconfont1'
+                },  {
+                    title:'种草特辑',
+                    icon:'iconfont2'
+                },  {
+                    title:'特选品牌',
+                    icon:'iconfont3'
+                },  {
+                    title:'领券中心',
+                    icon:'iconfont4'
+                },  {
+                    title:'签到',
+                    icon:'iconfont5'
+                }
+            ],
+            classify:[
+            {big_dec:'2132', small_dec:'12313'},
+            {big_dec:'2132', small_dec:'12313'},
+            {big_dec:'2132', small_dec:'12313'},
+            {big_dec:'2132', small__dec:'12313'}
+        ]
+        }
+    </script>
+</body>
+</html>

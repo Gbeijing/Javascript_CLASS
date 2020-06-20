@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*var arr = ['1','2','3']
+        for(var i= 0;i<arr.length;i++){
+            console.log(arr[i])
+        }*/
+       /* var students = [
+            {name:'顾坤',age:18},
+            {name:'王宇航',age:27},
+            {name:'王艳琴',age:43},
+            {name:'刘玉才',age:132},
+            {name:'方雪子',age:118}
+        ]
+        // console.log('姓名:',students[0].name,'年龄:',students[0].age)
+        for(var i = 0;i<students.length;i++){
+            console.log('姓名:',students[i].name,'年龄:',students[i].age)
+        }*/
+        
+        //在页面中显示年龄大于等于18的老师;在终端还是输出所有老师
+        var teacher = [
+            {name:'范真',dec:'淑女',age:18},
+            {name:'闫岐',dec:'伪淑女',age:17},
+            {name:'金溪镇',dec:'男',age:37},
+            {name:'管涛',dec:'笑嘻嘻',age:27}
+        ]
+        for(var i = 0; i<teacher.length;i++){   
+            if(teacher[i].age>=18){
+                document.write(`<h1>姓名:${teacher[i].name},描述:${teacher[i].dec},年龄:${teacher[i].age}</h1>`)
+            }else{
+                console.log('姓名:',teacher[i].name,'描述:',teacher[i].dec,'年龄',teacher[i].age)
+            }
+           }
+        var course = [
+            {pic:'1',course_dec:'幼儿英语入门课程',price:'2999.00',learing:'323人正在学'},
+            {pic:'1',course_dec:'幼儿英语入门课程',price:'2999.00',learing:'323人正在学'},
+            {pic:'1',course_dec:'幼儿英语入门课程',price:'2999.00',learing:'323人正在学'},
+            {pic:'1',course_dec:'幼儿英语入门课程',price:'2999.00',learing:'323人正在学'}
+        ]
+        var course = {
+                pic:'1',
+                
+
+        }
+    </script>
+</body>
+</html>
