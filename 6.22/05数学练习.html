@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 求 1*2*3*4*5*.....*20
+        // var resa = 1;
+        // for (var i = 1; i <= 20; i++) {
+        //     resa *= i
+        //     console.log(resa)
+        // }
+        // console.log(resa)
+
+        //输出1*2*3*4*5*.....*20字符串
+        var res='';
+        for (var i = 1; i <= 20; i++) {
+            res += (i+'*')
+           
+        }
+        res = res.slice(0,res.length-1)   //截取中间一部分
+        console.log(res) 
+        //求1*2*3*4...20 字符串
+      
+        // console.log(resa)
+        // 求1+2+3+4+5+......+20
+        // var res = 0;
+        // for (var j = 1; j <= 20; j++) {
+        //     res += j;
+        //     console.log(res)
+        // }
+        // console.log(res)
+    </script>
+</body>
+
+</html>

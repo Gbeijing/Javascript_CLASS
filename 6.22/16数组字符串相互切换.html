@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr  = ['方雪子','王泽鑫','余菲']
+
+        //将数组转换成字符
+        //arr.tostring() 将数组变为字符串并返回字符串
+        var res = arr.toString();
+        console.log(res)
+        console.log(arr)
+
+        //将数组变为字符串 join
+        //arr.join()将数组变为字符串
+        //----->参数为  替换','字符的内容
+        // 注意:参数只能替换一维数组中字符
+        var arr1 = ['a','c',[1,3]];
+        var res3 = arr1.join(' ') //用空格替换逗号
+        console.log(res3,'----------')
+
+
+        //将 res 字符串变为数组 newArr
+        // split()将字符串进行切割 ,并返回数组
+        //参数为被切割的字符
+        var newArr = res.split(',');
+        newArr[1] = '渣男'
+        console.log(newArr)
+
+        var str1 = "12+12+13+15+2+2+3+5"
+        var res1 = str1.split('+')
+        console.log(res1)
+    </script>
+</body>
+</html>

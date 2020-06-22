@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '日本人,美国人,韩国人'
+        //将'人'替换成'狗'
+
+        //replace(reg,newStr) 替换,  返回替换后结果 ; 原来的字符没有变化
+        //将reg匹配到的结果被new Str所替换
+        var res = str.replace(/['人']/g,'狗')
+        console.log(res,str)
+    </script>
+</body>
+</html>

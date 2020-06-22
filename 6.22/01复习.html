@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 求 1*2*3*4*5*.....*20
+
+        // 求1+2+3+4+5+......+20
+
+        /*
+        for (var i =0 ; i<5 ;i++){
+            //执行多次
+            console.log('kfdjklf' , i)
+        }
+        //执行一次  5
+        console.log(i)
+        */
+
+
+        /*
+        var res;
+        for (var i = 0 ; i<5; i++){
+            //在for循环中使用赋值运算符
+            res = i
+        }
+           console.log(i) //5
+           //看到是里面最后一次赋值
+           console.log(res) //4
+           */
+
+        /*
+        var res ="";
+        for (var i = 0 ; i<5; i++){  
+            // 循环体中加入 +=展示字符串拼接的过程
+            res += i
+            console.log(res) // 0 01 012 0123 01234
+        }
+           console.log(res) //01234
+        */
+
+        //与页面有关的字符串
+            /*
+            for(var i = 0 ;i<5;i++){
+                document.write(`<h1>我是一个页面<h1>`)
+            }
+            
+            var h1 = ''
+            for(var i = 0 ;i<5;i++){
+                //初始化变量并赋值
+                h1 +="<h1>这是一个页面<h1>"
+            }
+            document.write(h1)
+            */
+            /*
+            for(var i = 0 ;i<5;i++){
+                //for 循环中嵌套if可以控制程序
+                if(i<3){
+                    console.log(i) //0 1  2
+                }
+            }
+            */
+
+            /*
+            //程序优化:执行的少;可以获取结果
+            for(var i = 0 ;i<5;i++){
+                if(i===1){
+                    console.log(i)
+                    //break 表示跳出本次循环
+                    break
+                }
+                console.log(i)
+            }
+            */
+    </script>
+</body>
+</html>

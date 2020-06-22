@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        //如何统计循环中执行次数
+        var count=0
+        var num=0
+        for(var i = 0 ;i<9;i++){
+            //如何统计外面循环统计执行多少次
+            num++
+            console.log(i,'i')
+            for(var j=0 ;j<9;j++){
+                //统计里面for执行的次数
+                count++;
+            }
+        }
+        console.log(count)
+        console.log(num)
+        */
+
+        //上面的逻辑能够处理的数据结构  ----->多维数组
+        //1.第一步:取出一维数组下数据
+        var arr = [
+            ['aa', 'ggg'],
+            ['ba', 'ggg'],
+            ['ca', 'ggg', '1111222'],
+            ['da', 'ggg'],
+            ['ea', 'ggg'],
+            ['fa', 'ggg', 'hj']
+        ]
+        //动态渲染多维数组数据
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+            for (var j = 0; j < arr[i].length; j++) {
+                console.log(arr[i][j])
+            }
+        }
+
+        //需求:打印数组长度为3的所有数据
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+            if (arr[1].length === 3) {
+                for (var j = 0; j < arr[i].length; j++) {
+                    console.log(arr[i][j])
+                }
+            }
+        }
+        //1.知道循环多少次
+        //2.结果多少个;只要比执行次数少,就一定用到了if
+
+    </script>
+</body>
+
+</html>
