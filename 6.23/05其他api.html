@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //concat()合并数组并返回合并后的数组
+        var arr = [1,2,5,4]
+        var arr1 = ['dd','xx']
+        var res = ['bb','vv']
+        //将上面三个合并到一个数组并返回
+        //注意:arr数组长度变化了,是合并的三个长度和
+        arr = arr.concat(arr1)
+        arr = arr.concat(res)
+        console.log(arr)
+
+        //arr.reverse()颠倒数组
+        var reverseArr = arr1.reverse()
+        console.log(reverseArr)
+        
+        //arr.slice(startIndex,endIndex)发挥返回数组片段
+        //参一:哪一个索引值开始
+        //参二:到那个索引值结束;包含startIndex,不包含endIndex
+        var arr2 = [1,2,'ddd',4,6,7,'ff']
+        var res2 = arr2.slice(3,6)
+        console.log(res2)
+    </script>
+</body>
+</html>

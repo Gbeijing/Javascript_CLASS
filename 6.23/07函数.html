@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo(a){
+            console.log(a)
+            /*
+            return  返回值:
+            1可以将函数方法体运算的结果;返回给函数外部;name变量可以接收函数运行结果
+            2.return 以下的代码都不执行;作用是结束语句
+            3.返回值可以是js任意的类型
+            */
+            return 
+            console.log('我在return下')
+        }
+        //如果foo没有返回值 那么res = undefined
+        //如果有 res = foo return的内容
+        var res = foo('12')
+        console.log(res)
+
+        //另一种声明函数方式
+        var bar = function(){
+            console.log('aaa')
+        }
+        bar()
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //如何判断某个数组中含有某个元素
+        var arr = ['gukun','234',222,true]
+        //方式1:遍历 + if
+        for(var i = 0,len= arr.length;i<len;i++){
+            if(arr[i]=='gukun'){
+                alert('帅哥')
+                break
+            }
+        }
+        //方式2.  arr.indexOf 返回数组元素的索引值.若果为-1证明数组中没有这个元素
+        var res = arr.indexOf('gukun')
+        if(res != -1){
+            alert('欧巴a')
+        }
+        console.log(res)
+    </script>
+</body>
+</html>

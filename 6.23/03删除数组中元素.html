@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4]
+        //pop()从尾部删除---->会改变长度-1;返回被删除的元素
+        var res= arr.pop()
+        console.log(arr,res)
+
+        //shift()从头删除,长度减一,返回被删除的元素
+        arr.shift()
+        console.log(arr)
+
+        //需求:用for循环全部清空数组
+        arr1 =[1,2,3,4,6,5,7]
+        for(var i = arr1.length;i>0;i--){
+            arr1.pop()
+            console.log(arr1)
+        }
+        
+
+        //用pop删除数组弊端
+        // 1:长度是变化的;for选中会有两个变量
+        // 2.不能删除干净;
+            /*for(var i = 0 ;i<=arr1.length;i++){
+                arr1.pop()
+                console.log(++count)
+                console.log(arr1)
+            }*/
+    </script>
+</body>
+</html>

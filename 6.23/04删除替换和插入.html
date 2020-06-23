@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,5,655,456]
+        //会改变数组长度
+        //splice(index,len,替换内容)  删除 替换  插入
+        //参数一:从第几个索引值开始
+        //参数二:删除几个元素(包含index)
+        //参数N:替换或插入内容
+
+        //1.清空数组arr.splite()
+        //如果一个参数,表示从第几个索引值开始,删除后面元素
+        //若果两个参数;表示从第几个索引值开始,删除几个元素
+        //如果三个或n个参数;表示从第几个索引值开始删除几个,替换几个
+        //或者插入几个,删除0个是插入 删除1 添加1是替换
+        arr.splice(2)
+        console.log(arr)
+    </script>
+</body>
+</html>

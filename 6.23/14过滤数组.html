@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [
+            {name:'aaa' , age:12},
+            {name:'aaa' , age:122},
+            {name:'aaa' , age:32},
+            {name:'aaa' , age:12},
+            {name:'aaa' , age:442},
+            {name:'aaa' , age:22},
+            {name:'aaa' , age:152},
+            {name:'aaa' , age:132},
+            {name:'aaa' , age:102}
+        ]
+        // 在页面中展示arr>33的数据
+
+        //filter()过滤 返回过滤后的新数组
+        var res = arr.filter(function(item,index){
+            
+            //return 将满足条件的元素添加到res中
+            return item.age>33
+        })
+        console.log(res)
+    </script>
+</body>
+</html>
