@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 只有var let 是声明变量,其他一律是使用变量
+        //使用变量:直接用值;重新赋值
+        function fun(){
+            var a = 11
+            function bar(){
+                a = 22
+                console.log(a)
+            }
+           
+            console.log(a)
+            bar()
+        }
+        fun()
+        //因为所有作用域  var声明的变量都会提升到当前作用域的最顶端,赋值不提升
+          
+        // undefined是变量已声明没有赋值
+        // is not defined是未声明
+    </script>
+</body>
+</html>

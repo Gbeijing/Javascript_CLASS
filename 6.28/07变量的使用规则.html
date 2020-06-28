@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var test = '全局变量';
+        function foo() {
+            var a = 0   //不会销毁:因为bar函数体中还需要使用
+            var c = 'xxxxx'  //销毁  没用了
+            console.log(a);
+            return function bar() {
+                var b = 'b'
+                ++a
+                console.log(a,'========')
+            }
+        }
+       var bar =  foo()
+       bar()
+       bar()
+       bar()
+       bar()
+        // 变量的使用规则是什么?
+        // 第一步:自己的作用域中找var声明的变量
+        // 如果没有会在上一层作用域中找,知道找到全局的作用域为止;
+        // 如果一直没有就报错,在中间任何一个作用域找到;那么就是用那一层的变量
+    </script>
+</body>
+
+</html>

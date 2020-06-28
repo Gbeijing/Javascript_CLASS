@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //计时器 setInterval
+        //每隔多少毫秒执行一次 回调函数  无限循环的执行
+
+        //需要一个Interval出口: 清空计时器===>如果不清空计时器,会导致页面性能特别差
+        //timer可以表示每一个计时器身份(第几个)
+
+/*
+        var x = 0
+        var timer = setInterval(function () {
+            x++;
+            console.log(x)
+            if (x > 10) {
+                clearInterval(timer)  //清空计时器
+            }
+        }, 500);
+        console.log(timer)
+*/
+        //*********注意多次执行同一个setInteval到底清空哪一个*******
+        for (var i = 0; i < 3; i++) {
+            var x = 0
+            // setinterval 执行了3次
+            var timer = setInterval(function () {
+                // setinterval 执行了3n次
+                console.log('123')
+
+                // 坑1:  在这里面清空 不知道清空是哪一个timer
+                clearInterval(timer) //这里清空最后一个计时器
+            }, 500);
+            console.log(timer), "===========" //time执行多个;需要清空每一个
+            //  clearInterval(timer)             //清空多个  //坑2: setInterval失效了
+            // =========>如何解决失效问题
+
+            //坑3 :清空同一个timer清空了最后一个三次
+          
+            // setTimeout ( function( ){
+            // console.log(timer)
+            //clearInterval(timer)
+            // }, 501)
+
+            // =========>目的:需要直到  分别保存timer的值?1,2,3 ======>用立即执行函数包裹
+        }
+    </script>
+    
+</body>
+
+</html>
