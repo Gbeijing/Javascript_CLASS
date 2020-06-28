@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date = [
+            {
+                Id: 1,
+                title: "手冲咖啡6杯装(定制款)",
+                price: "59",
+                mack:
+                    '<span style="color: #FFFFFF;background: #AB7FD1; border-color: #AB7FD1">&#x7206;&#x54C1;</span>',
+                nice: "1742",
+                img_list_url:
+                    "http://bfs.biyao.com/group1/M00/C8/19/rBACYVzH_sGAfrzRAAA8joHI5YU396.jpg",
+                type_one: "咖啡",
+                type_two: "手冲咖啡",
+            }, {
+                Id: 1,
+                title: "伯爵咖啡",
+                price: "59",
+                mack:
+                    '<span style="color: #FFFFFF;background: #AB7FD1; border-color: #AB7FD1">&#x7206;&#x54C1;</span>',
+                nice: "1742",
+                img_list_url:
+                    "http://bfs.biyao.com/group1/M00/C8/19/rBACYVzH_sGAfrzRAAA8joHI5YU396.jpg",
+                type_one: "咖啡",
+                type_two: "手冲咖啡",
+            },
+            {
+                Id: 2,
+                title: "ANNY法式深焙袋冲咖啡2袋",
+                price: "39",
+                mack:
+                    '<span style="color: #FB4C81;background: ; border-color: #FB4C81">&#x4E00;&#x8D77;&#x62FC;</span>',
+                nice: "910",
+                img_list_url:
+                    "http://bfs.biyao.com/group1/M00/51/BA/rBACW1uFacCAShDcAAA5qDQqJDo607.jpg",
+                type_one: "咖啡",
+                type_two: "咖啡粉",
+            }, {
+                Id: 2,
+                title: "鹊桥咖啡",
+                price: "39",
+                mack:
+                    '<span style="color: #FB4C81;background: ; border-color: #FB4C81">&#x4E00;&#x8D77;&#x62FC;</span>',
+                nice: "910",
+                img_list_url:
+                    "http://bfs.biyao.com/group1/M00/51/BA/rBACW1uFacCAShDcAAA5qDQqJDo607.jpg",
+                type_one: "咖啡",
+                type_two: "咖啡粉",
+            }
+        ]
+        var chong = date.filter((item ,index,arr)=>{
+            return item.type_two==='手冲咖啡'
+        })
+        console.log(chong)
+        var fen = date.filter(function(item,index,arr){
+            return item.type_two==='咖啡粉'
+        })
+        console.log(fen) 
+       
+        /*
+        [
+                {
+                    type_two: '手冲咖啡',
+                   
+                },{
+                    type_two: '咖啡粉',
+                    
+                }
+            ]
+        */
+    </script>
+</body>
+</html>

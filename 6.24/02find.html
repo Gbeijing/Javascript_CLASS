@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //find():查找某个数组中是否有某个元素
+        //如果有就返回第一个被查到的元素;没有则返回undefined
+
+        //怎么用?
+        // 1.不仅判断是否有,如果有则还需要使用这个元素
+        var arr = [1,2,4,30,5,67,653]
+        var res = arr.find(function(item,index){
+            // item是数组元素  index是索引值
+            // console.log(item,index)
+            return item===30
+        })
+        console.log(res)
+        //使用了find查到的元素
+        var sum = res+1
+        console.log(sum)
+
+        //如何仅仅的判断哪一个数组中是否含有某个元素?
+        // findIndex()判断数组中是否含有某个元素;没有返回-1;有的话就返回第一个元素对应索引
+        var arr1 = [1,2,4,30,5,67,653]
+        var res1 = arr1.findIndex(function(item,index){
+            return item===''
+        })
+        console.log(res1)
+    </script>
+</body>
+</html>

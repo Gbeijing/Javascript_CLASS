@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 5, 5, 7, 6, 88, 16]
+        //从头用第一项和后面每一项进行比较
+        for (var i = 0; i < arr.length; i++) {
+           
+            for (var j = i+1; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    //后面的项和前面的项相等,删除其中一项.注意arr.length变小
+                    arr.splice(j, 1)
+                    j--  //删除元素后 for循环回退一步;如果没有j-- 那当三个在一起时会漏掉一个
+                }
+            }
+
+        }
+        console.log(arr)
+    </script>
+</body>
+
+</html>

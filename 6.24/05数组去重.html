@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 5, 6, 2, 5]
+        var res = [] //保证res中数据不是重复就完成去重
+        // var flag
+        // for (var i = 0; i < arr.length; i++) {
+        //     //让arr中每一项都和res比较;然后添加不重复数据
+        //     for (var j = 0; j <= res.length; j++) {
+        //         if (arr[i] == res[j]) {
+        //             flag = true;
+        //             break;
+        //         }
+        //     }
+        //     // 如果res中没有arr[i]，就添加arr[i]
+        //     if (!flag) {
+        //         res.push(arr[i]);
+        //     }
+        // } console.log(res)
+
+
+            /* 错误的思路
+                res.push(arr[i])
+                for(var j =  1;j<res.length-1;j++){
+                  if (arr[i] === res[j]){
+                     res.(arr[i])
+                  }else{
+                     
+                  }
+             }
+             */
+       var res = []
+       for (var i = 0; i < arr.length; i++){
+        if (res.indexOf(arr[i]) === -1){
+            res.push(arr[i])
+        }
+       }
+       console.log(res)
+    </script>
+</body>
+
+</html>
