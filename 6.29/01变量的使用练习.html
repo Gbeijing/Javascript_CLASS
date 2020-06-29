@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        gp{}
+        go{
+            a:undefined
+        }
+        go{
+            a:undefined,
+            testResult:funciton
+        }
+        // 全局解析执行
+        
+        testResult()
+        AO{}  创建 AO
+        AO{}  形参提升
+        AO{   变量提升
+            a:undefined,
+            b:undefined,
+            c:undefined,
+        }
+        形参实参统一
+        方法体中函数声明提升。
+        // 解析执行
+ 
+ 
+ 
+        */
+      c=100  // 没有变量提升  编译阶段 GO 没有 执行阶段 GO 中增c
+       var a = 100;
+       function testResult() {
+       // 声明b 并赋初始值
+         var b = 2 * a; // b 赋值  NAN
+         var a = 200; 
+         var c = a / 2;  // C 100
+         alert(b);  // NAN
+         alert(c);  // 100
+        
+         return
+       }
+       testResult();  // 创建Ao
+     </script>
+</body>
+</html>
