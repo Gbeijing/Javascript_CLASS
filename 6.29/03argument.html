@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo(){
+            //arguments 伪数组 作用:接受实参
+            //伪数组是不能使用数组api
+            console.log(arguments)
+            //如何将伪数组变为真数组
+            /****方式一
+            var params = []
+            for (var i = 0; i<arguments.length;i++){
+                params.push[arguments[i]]
+            }
+            */
+            /****方式二
+            var params = [...arguments] //展开运算符(es6中)
+            console.log(params)
+            */
+            /****方式三 (将类数组变为真数组,深拷贝)
+            var params = Array.form(arguments);
+            cosole.log(params)
+            */
+        }
+        foo(2,3,4,5)
+    </script>
+</body>
+</html>

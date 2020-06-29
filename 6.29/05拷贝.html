@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //拷贝  就是  复制
+
+        //深拷贝
+        //拷贝基本类型的数据:深拷贝(存在栈中)
+
+        var str = 'aaa'
+        var copyStr = str
+        copyStr = copyStr + '你好'
+        console.log(copyStr, str)
+
+        //浅拷贝  对象数组直接复制,实现都是浅拷贝 (堆)
+        //一个改变会影响另一个改变
+        var arr = [1, 2, 3, 4]
+        var copyArr = arr
+        copyArr.push('new')
+        arr.push('old')
+        console.log(copyArr, arr)
+
+        //任何实现对象数组的深拷贝
+        var arr1 = ['sss', 1, 2, 3]
+        var obj = {
+            name: 'aaa',
+            age: 22
+        }
+
+        /*
+        var res = arr1.join()
+        console.log(res)
+        var copyRes = res
+        copyRes = copyRes + ',bbbbb'
+        console.log(copyRes,res)
+        var arr2 = copyRes.split(',')
+        console.log(arr2)
+        */
+        var res = arr1.toString()
+        console.log(res)
+        var copyRes = res
+        copyRes = copyRes + ',bbbbb'
+        console.log(copyRes,res)
+        var arr2 = copyRes.split(',')
+        console.log(arr2)
+
+    </script>
+</body>
+
+</html>
