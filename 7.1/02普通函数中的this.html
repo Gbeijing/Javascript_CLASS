@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 除了全局就是局部,在函数方法体中的是局部;其他一类的是全局 -->
+
+<body>
+    <script>
+
+        //先看this在什么作用域下:
+        //在全局下:普通对象,if,for,{},(),没有特殊情况指向window
+        //在局部作用域中(function中):普通的谁调用执行谁,即没有前面的名字+.就是window,有就是方法体中
+        var name = '周超'
+        function foo() {
+            var name = '刘玉才';
+            var age = 95;
+            console.log(this.name)
+        }
+        var person = {
+            name: '顾坤',
+            age: 25,
+            dec: '帅',
+            foo: foo,
+            ao: {
+                name: '王宇航',
+                foo: foo
+            },
+            do: this.name  //指向window
+        }
+        //谁调用指向谁,近看函数执行左面最近的对象是什么
+        foo() //函数方法体指向的是window
+        person.foo()  //指向的是顾坤
+        window.person.foo()//指向的是顾坤
+
+    </script>
+</body>
+
+</html>

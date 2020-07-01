@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            var num = 1;
+            var myObject = {
+                num: 2,
+    
+                add: function () {
+                    this.num = 3;  //2-->3
+                    //window调用
+                    (function () {
+                        console.log(this.num);//1
+                        this.num = 4;  //window.num=4;1--->4
+                    })();
+                    console.log(this.num);    //3
+                },
+    
+                sub: function () {
+                    console.log(this.num)//4
+                }
+            }
+            myObject.add();
+            console.log(myObject.num); //3
+            console.log(num);  //4
+            var sub = myObject.sub;
+            sub(); //4
+        */
+
+        var name = 'window'
+        var person1 = {
+            name: 'person1',
+            show1: function () {
+                console.log(this.name)
+            },
+
+            show3: function () {
+                return function () {
+                    console.log(this.name)
+                }
+            },
+        }
+        var person2 = { name: 'person2' }
+
+        person1.show1() //person1
+        person1.show1.call(person2) //person2
+
+        person1.show3()()//window
+        /*等同于 var res = person1.show3()
+                 res()*/
+        person1.show3().call(person2) //person2
+        person1.show3.call(person2)() //window 
+        /*等同于 var res = person1.show3.call(person2)
+                res()*/
+
+        var name = '周超'
+            (function () {
+                var name = '与非'
+                console.log(this.name)
+            })()
+
+        var name = '周超'
+        function foo() {
+            (function () {
+                var name = '与非'
+                console.log(this.name) 
+            })()
+        }
+        foo()
+        
+        function foo(){
+            console.log(this)
+            return function(){
+                console.log(this)
+            }
+        }
+        var obj = {say:foo}
+        obj.say()
+
+        //规律:嵌套函数中:父函数this不等于子函数this;分别按照套路去判断
+
+        (function(){
+            console.log(this)
+            return function(){
+                console.log(this)
+            }
+        }).call(obj)()  //call触发
+    </script>
+</body>
+
+</html>
