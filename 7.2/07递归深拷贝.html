@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            name:'周超',
+            list:[{
+                    name:'与非'
+                    },{
+                    name:'顾坤',
+                    say:'哈哈'
+                    }]
+        }
+        //deepCopy 实现的是数组或者对象的深层拷贝
+        function deepCopy(params){
+            // if(param instanceof Object){
+
+            // }
+            // 如果是数组怎么拷贝
+            if(Array.isArray(params)){
+                var res1 = []
+                for(var i = 0 ; i<params.length;i++){
+                    if(params[i] instanceof Object){
+                        res1.push(deepCopy(params[i]))
+                    }else{
+                        res1.push(params[i])
+                    }
+                   
+                }
+                return res1
+            }
+            // 如果是对象怎么拷贝
+            if(params.constructor===Object){
+                var res= {}
+                for(var x in params){
+                    if(params[x] instanceof Object){
+                        res[x]=deepCopy(params[x])
+                    }else{
+                        res[x]=params[x]
+                    } 
+                }
+                return res
+            }
+        }
+       
+        var res2 =  deepCopy(obj)
+        
+        obj.list.push('嘟嘟u')
+        obj.list[1].dec='dddddd'
+        console.log(obj)
+        console.log(res2)
+
+        //未来的面试题:考察大家js基础逻辑问题
+        //赋值  拷贝  逻辑  递归 if  for 方法的封装 中和掌握程度
+        //如何写与数据类型有关的判断表达式
+    </script>
+</body>
+</html>

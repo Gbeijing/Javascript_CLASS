@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sort(arr){
+            if(arguments.length ===0){
+                throw new Error('parm can  not undefined')
+            }
+            if(arguments.length>1){
+                throw new Error('parm.length can not gt 1')
+            }
+            if(!Array.isArray(arr)){
+                throw new Error('parm  must be Array')
+            }
+            var arr= arr
+            for(var i = 0 ;i<arr.length;i++){
+                // arr[i]  小前
+                for(var j = i+1;j<arr.length;j++){
+                    // arr[j] 换值
+                    if(arr[i]>arr[j]){
+                        var tmp = arr[i]
+                        arr[i] = arr[j]
+                        arr[j] = tmp
+                    }
+                }
+            }
+            return arr
+        }
+        var arr = [1,9,7,8,5,3,2,6]
+        console.log(sort(arr))
+    </script>
+</body>
+</html>

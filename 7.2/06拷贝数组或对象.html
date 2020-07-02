@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function copy(param){
+            if(arguments.length ===0){
+                throw new Error('arguments.length can not undefined')
+            }
+            if(arguments.length>1){
+                throw new Error('arguments.length can not gt 1')
+            }
+            if(!(param instanceof Object)){
+                throw new Error('param  must be Object or array')
+            }
+            if(Array.isArray(param)){
+                var res = []
+                for(var i = 0 ; i<param.length;i++){
+                    res.push(param[i])
+                }
+                return res 
+            }
+
+            if(param.constructor === Object){
+                var res = {}
+                for (var x in param){
+                    res[x]  = param[x]
+                }
+                return res 
+            }
+        }
+        
+        var res = copy([1,2,3,4])
+        var res1 = copy({name:'菲菲',
+                         like:'zz'})
+   
+        console.log(res)
+        console.log(res1)
+    </script>
+</body>
+</html>

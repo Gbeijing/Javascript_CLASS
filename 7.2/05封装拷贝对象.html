@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //变量或属性key赋值js基本数据类型,存的是数据
+        //变量或属性key赋值引用数据类型; 存的是[指针]
+        // var obj = {
+        //     name: 'gk',
+        //     age: 18
+        // }
+        // var res = {}
+        // //xxx.xx点左面的赋值都是对象, xx本身类型是[字符串]
+        // for (var x in obj) {
+        //     res[x] = obj[x]
+        // }
+        // console.log(res)
+        var res = {};
+        function copyObject(obj) {
+            if(arguments.length ===0){
+                throw new Error('arguments.length can not undefined')
+            }
+            if(arguments.length>1){
+                throw new Error('arguments.length can not gt 1')
+            }
+            if(obj.constructor !== Object){
+                throw new Error('parm  must be Object')
+            }
+           
+            for (var x in obj) {
+                res[x] = obj[x];
+            }
+            return res
+        }
+        copyObject({
+            name: '周超',
+            age: 21
+        })
+        console.log(res)
+    </script>
+</body>
+
+</html>
