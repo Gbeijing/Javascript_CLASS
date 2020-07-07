@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>与非最美,周超最帅.挺有缘</h1>
+    <h1>与非最美,周超最帅.挺有缘</h1>
+    <h1>与非最美,周超最帅.挺有缘</h1>
+    <h1>与非最美,周超最帅.挺有缘</h1>
+    <h1>与非最美,周超最帅.挺有缘</h1>
+    <script>
+        //第一步,选中需要被操作的标签
+        var h1s = document.getElementsByTagName('h1')
+        var h1s1 = h1s[0];
+        var h1s2 = h1s[1];
+        var h1s3 = h1s[2];
+        var h1s4 = h1s[3];
+        var h1s5 = h1s[4];
+
+        //处理用户行为
+
+        (function () {
+            var flag = true
+            //处理当用户点击第一个h1时候的颜色: h1的响应
+            h1s1.onclick = function () {
+                (flag = !flag) ? h1s1.style.color = 'red' : h1s1.style.color = 'blue' //点击时候字体变蓝
+               
+            }
+        })();
+        (function () {
+            var flag = true
+            h1s2.onclick = function () {
+                (flag = !flag) ? h1s2.style.color = 'red' : h1s2.style.color = 'blue'   //点击时候字体变蓝
+            }
+        })()
+
+            //不能用同一个flag 会出现问题.解决方法? ===========>立即执行函数//  或者是03优化
+        (function () {
+            var flag = true
+            h1s3.onclick = function () {
+                (flag = !flag) ? h1s3.style.color = 'red' : h1s3.style.color = 'blue'   //点击时候字体变蓝
+            }
+        })()
+        (function () {
+            var flag = true
+            h1s4.onclick = function () {
+                (flag = !flag) ? h1s4.style.color = 'red' : h1s4.style.color = 'blue'   //点击时候字体变蓝
+            }
+        })()
+        (function () {
+            var flag = true
+            h1s5.onclick = function () {
+                (flag = !flag) ? h1s5.style.color = 'red' : h1s5.style.color = 'blue'   //点击时候字体变蓝
+            }
+        })()
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="box-big"></div>
+        <div class="box">
+            <span>我是任荣</span>
+            <p>我是一段话</p>
+            <div>我是一个容器</div>
+        </div>
+        <div class="box-one"></div>
+    </div>
+    <script>
+        //root
+        var box = document.getElementsByClassName('box')[0];
+        console.log(box.nodeName);  //div 获取节点名字
+        console.log(box);
+        var boxParent = box.parentNode
+        console.log(boxParent);  //返回父节点
+        var boxChildren = box.children;
+        console.log(boxChildren);
+        var boxBot = box.previousElementSibling; // 获取box上一个兄弟元素
+        console.log(boxBot);
+        var boxNext = box.nextElementSibling;   // 获取box下一个兄弟元素
+        console.log(boxNext)    
+        //综上:
+        //第一步: 通过js选择器,获取当前HTML标签
+        //第二步: 通过节点关系 获取相关元素(父元素,子元素,兄弟元素)
+    </script>
+</body>
+</html>

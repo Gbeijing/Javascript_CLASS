@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul>li{
+            list-style: none;
+            width: 300px;
+            height: 45px;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ccc;
+            padding: 0px 15px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <p>我是内容01</p>
+            <button>删除01</button>
+        </li>
+        <li>
+            <p>我是内容02</p>
+            <button>删除02</button>
+        </li>
+        <li>
+            <p>我是内容03</p>
+            <button>删除03</button>
+        </li>
+        <li>
+            <p>我是内容04</p>
+            <button>删除04</button>
+        </li>
+        <li>
+            <p>我是内容05</p>
+            <button>删除05</button>
+        </li>
+    </ul>
+    <script>
+        var btns = document.querySelectorAll('li>button');
+        for(var i =0 ;i<btns.length;i++){
+            (function(){
+                var  x = i;
+                btns[x].onclick =function(){
+                    //点击button删除h1
+
+                    //通过button按钮获取父元素li
+                    var parent = btns[x].parentNode;
+                    // 删除li
+                    parent.remove();
+                }
+            })()
+        }
+    </script>
+</body>
+</html>

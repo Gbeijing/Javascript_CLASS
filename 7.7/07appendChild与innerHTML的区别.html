@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <span>我史丹利解放后你三等奖 </span>
+            <span>对方水电费地方都是放大</span>
+        </div>
+        <div class="box1">
+            <span>我离开的飞机莱克斯顿 </span>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var box1 = document.querySelector('.box1');
+        box.innerHTML = '你是是哦';  //重新赋值
+        var text = document.createTextNode('我是新的文本节点');
+        box1.appendChild(text); //插入  累加的意思
+    </script>
+</body>
+</html>
