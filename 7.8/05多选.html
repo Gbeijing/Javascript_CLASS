@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <div><input type="checkbox" value="1"><span>选择的内容01</span></div>
+        <div><input type="checkbox" value="2"><span>选择的内容02</span></div>
+        <div><input type="checkbox" value="3" checked><span>选择的内容03</span></div>
+        <div><input type="checkbox" value="4"><span>选择的内容04</span></div>
+        <div><input type="checkbox" value="5" checked><span>选择的内容05</span></div>
+    </form>
+    <script>
+        //问题:如何知道用户勾选了那些内容,并直到选择的是什么?
+        /*
+            第一步:获取所有的input= checkbox
+            第二步:遍历input数组,判断check的值为true的元素,表示被选中
+            第三步:声明已给的checkArr=[] 因为是多选,所以用数组,将用户所选的元素加到数组中
+        */
+        var ipts = document.querySelectorAll('input[type=checkbox]')
+        console.log(ipts)
+        var checkArr =[]  //存放选中的元素及内容
+        for(var i= 0;i<ipts.length;i++){
+            if (ipts[i].checked){
+                checkArr.push({
+                    el:ipts[i],
+                    value:ipts[i].value
+                })
+            }
+        }
+        console.log(checkArr)
+    </script>
+
+</body>
+
+</html>

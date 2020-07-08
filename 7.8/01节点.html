@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" date-wyq='fdsfsfd'>我是内容</div>
+    <script>
+        //nodetype作用:返回dom上节点的类型
+            //1是语元素节点
+            //2是属性节点
+            //3是文本节点
+        var wrap = document.getElementsByClassName('wrap')[0];
+        var div = document.querySelector('.wrap');
+        console.log(wrap.nodeType);//Element_node 返回是元素节点
+        console.log(div.nodeType);//Element_node 返回是元素节点
+        var txt = document.createTextNode('ldfjlkdsjlkd')
+
+        // .getAttribute()返回某个元素属性的值
+        //date-wyq   date-*  自定义属性
+    </script>
+</body>
+</html>

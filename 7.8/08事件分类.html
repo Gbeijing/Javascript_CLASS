@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap {
+            width: 400px;
+            height: 500px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+
+    </div>
+    <script>
+        /*鼠标事件*/
+        //监听鼠标在整个页面中移动范围
+        // document.onmousemove = function () {
+        //     console.log('qqqqqqqqqqqq')
+        // }
+        // //监听某个元素鼠标移动的情况
+        // wrap.onmousemove = function () {
+        //     console.log('aaaaaaaaaaa')
+        // }
+
+
+        wrap.onmouseenter = function () {
+            console.log('进')
+        }
+        wrap.onmouseleave = function () {
+            console.log('出')
+        }
+        wrap.onmousedown = function () {
+            console.log('按')
+        }
+
+        //键盘事件
+        // document.onkeydown = function(){
+        //     console.log('按了键盘')
+        // }
+        document.onkeyup = function(){
+            console.log('松开键盘')
+        }
+        document.onkeypress = function(){
+            console.log('123123231')
+        }
+    </script>
+
+</body>
+
+</html>

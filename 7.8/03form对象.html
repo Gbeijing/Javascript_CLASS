@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="checkbox" value= '1'>
+        <span>这是我宣布的媳妇</span>
+    </div>
+
+    <script>
+        // form表单,在ss  h5  js都是特殊的
+        // h5默认属性
+        // css清空样式特殊
+        // js 默认行为,多种数据格式
+        //表单事件:
+        /*  提交
+            获取焦点
+            失去焦点
+            改变
+            实时监听输入    
+        */
+
+        //在js中用什么方式能看到用户是否勾选?
+        var check = document.querySelector('input[type=checkbox]')
+        // check.checked 判断checkbox是否被勾选  true是选中,false是没选
+        console.log(check.checked)
+        
+        //如何指到勾选后的内容是什么呢?
+        console.log(check.value)//1   代表:'这是我选的内容'
+    </script>
+</body>
+
+</html>
