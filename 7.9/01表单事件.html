@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="useName">
+            <input type="text">
+        </label>
+        <label for="password">
+            <input type="text" name="" id="">
+        </label>
+        <button>提交</button>
+    </form>
+
+    <div>
+        <input type="text" id="ipt">
+        <h1></h1>
+    </div>
+    <div>
+        <input type="checkbox" id="check">選擇
+    </div>
+
+    <script>
+
+        //form input 
+        //  提交   change
+        // var form = document.querySelector('form');
+        // form.onsubmit = function (e) {
+        //     //*******阻止浏览器默认行为****************
+        //     e.preventDefault();
+        //     console.log(e, 'tijiaole ');
+        //     // **********获取表单输入的内容进行提交处理*****************
+        //     console.log(form[0].value);
+        // }
+        // var btn = document.querySelector('button');
+        // but.onclick = function (e) {
+        //     e.preventDefault();
+        //     console.log('ddddd');
+        // }
+
+
+
+
+        // ***********input事件
+        // var ipt = document.querySelector('#ipt');
+        // var h1 = document.querySelector('h1')
+        // // **********input事件,可以实现实时监听input输入框的动态
+        // ipt.oninput = function(){
+        //     console.log(ipt.value)
+        //     h1.innerHTML = ipt.value
+        // }
+
+            //给输入框绑定change事件
+            //  内容变换并且失去焦点时
+            var ipt = document.querySelector('#ipt');
+            ipt.onchange = function(e){
+                console.log(e.target.value)
+            }
+
+
+        //*****************change 事件,当input发生改变触发*************
+        // var check = document.querySelector('#check');
+        // check.onchange = function (e) {
+        //     console.log('sssssss');
+        //     console.log(e.target.checked)
+        // }
+
+        //焦点事件  
+        var ipt = document.querySelector('#ipt');
+        ipt.onfocus = function(){
+            console.log('获取焦点')
+        }
+        ipt.onblur = function(){
+            console.log('qqqq')
+        }
+
+
+
+    </script>
+</body>
+
+</html>
