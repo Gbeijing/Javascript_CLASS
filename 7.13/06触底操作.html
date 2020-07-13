@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <p>我是内容01</p>
+        <p>我是内容02</p>
+        <p>我是内容03</p>
+        <p>我是内容04</p>
+        <p>我是内容05</p>
+        <p>我是内容06</p>
+        <p>我是内容07</p>
+        <p>我是内容08</p>
+        <p>我是内容09</p>
+        <p>我是内容10</p>
+    </div>
+    <script>
+        //触底
+        //页面高度 <= 视图窗口高度 + 滚动条滚动高度
+        var wrap = document.querySelector('.wrap')
+        window.onscroll = function () {
+            var h = innerHeight; //视图窗口高度
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;//滚动条滚动高度
+            var pageH = document.body.offsetHeight;//页面高度
+            var date = [
+                '前端', 'JAVA', '大数据', 'python', '数据分析', '产品经理'
+            ];
+            if (h + scrollTop > pageH) {
+                // alert('到底了')
+                //到底后,往date中添加内容
+                setTimeout(function () {
+                    //bug:  慢 在0.5s内会导致重复多次触底===>解决方法  防抖0s
+                    for (var i = 0; i < date.length; i++) {
+                        var p = document.createElement('p');
+                        p.innerHTML = date[i];
+                        console.log('00000000000000000')
+                        wrap.appendChild(p)
+                    }
+                }, 0)
+
+            }
+        }
+    </script>
+</body>
+
+</html>

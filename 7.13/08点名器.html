@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 70px;
+            border-radius: 10px;
+            border: 1px solid #cccccc;
+            text-align: center;
+            font-size: 18px;
+            line-height: 70px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">开始点名</div>
+    <button id="start">开始</button>
+    <button id="stop">暂停</button>
+    <script>
+        var names = [
+            '顾坤',
+            '李静',
+            '金剑',
+            '王梦娇',
+            '付宇航',
+            '胡雪峰',
+            '刘安',
+            '缪兰',
+            '卢振旭',
+            '王菲',
+            '商海周'
+        ]
+        var box = document.querySelector('.box');
+        var start = document.querySelector('#start');
+        var sp = document.querySelector('#stop');
+        var timer;
+        var flag = true //开关  防抖
+        start.onclick = function () {
+            //多次点击以第一次为主
+            if (flag) {
+                //多次点击,只显示一个
+                timer = setInterval(function () {
+                    var random = Math.floor(Math.random() * (names.length))
+                    box.innerHTML = names[random]
+                }, 10)
+            }
+            flag = false
+
+        };
+        sp.onclick = function () {
+            clearInterval(timer);
+            flag = true
+
+        }
+        // bug点击多次不清楚timer
+
+
+        //防抖 和 截流===========>网络性能优化
+        // 防抖  多次点击按钮以第一次为主   ======> timer  触底....
+        // 截流  多次点击按钮以最后一次为主 =====>购物车的计数器
+    </script>
+</body>
+
+</html>

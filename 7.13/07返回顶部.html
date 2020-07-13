@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            height: 150px;
+        }
+        button{
+            display: none;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button>返回顶部</button>
+    <p>我是内容01</p>
+    <p>我是内容02</p>
+    <p>我是内容03</p>
+    <p>我是内容04</p>
+    <p>我是内容05</p>
+    <p>我是内容06</p>
+    <p>我是内容07</p>
+    <p>我是内容08</p>
+    <p>我是内容09</p>
+    <p>我是内容10</p>
+    
+    <script>
+        //没有动画的返回顶部
+        //注意:滚动条在任意有滚动条的元素里都可以用
+        
+        
+
+        //scrollTo:指定滚动条到某一个位置
+        //参数为某一个对象   top是纵向滚动  left横向滚动
+        window.scrollTo({
+            top:200
+        })
+       
+        //如何初始化指定滚动条滚动到某一位置
+        var btn = document.querySelector('button')
+        window.onscroll = function(){
+            var top = document.documentElement.scrollTop;
+            //scrollHight=offsetHight 获取滚动条元素高度
+            var H = innerHeight;
+            var pageh = document.documentElement.scrollHeight||document.body.scrollHeight;
+            console.log(pageh)
+            if(top+H>1600){
+                btn.style.display = 'block'
+            }else{
+                btn.style.display = ''
+            }
+        }
+
+        //点击按钮,返回顶部
+        // btn.onclick = function(){
+        //     window.scrollTo({
+        //         top:0
+        //     })
+        // }
+        
+        //动画返回顶部
+        btn.onclick = function(){
+            //1.获取当前滚动条位置
+            //2.实现js动画效果用setInterval
+            var top = document.documentElement.scrollTop;
+            var timer = setInterval(() => {
+                top -= 10   //没隔16.7ms自减少10
+                window.scrollTo({
+                    top:top //滚动条每次滚动的值是一个动态的值 ======>动画效果
+                })
+                if(top<=0){
+                    clearInterval(timer);
+                }
+            }, 16.7);
+        }
+        
+    </script>
+</body>
+</html>

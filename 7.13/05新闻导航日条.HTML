@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            height: 300px;
+            background-color: coral;
+        }
+        ul>li{
+            list-style: none;
+            display: inline-block;
+            height: 50px;
+        }
+        li>a {
+            text-decoration: none;
+            padding: 15px;
+            color: #f1f1f1;
+            display: inline-block;
+        }
+        nav{
+            background-color: cyan;
+            width: 100%;
+        }
+        .content p{
+            height: 100px;
+        }
+        .fixed{
+            position: fixed;
+            top: 0;
+            animation: ani 1s linear;
+            overflow: hidden;
+        }
+        @keyframes ani{
+            from{
+                height: 0px;
+            }
+            to {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <nav>
+        <ul>
+            <li><a href="">导航01</a></li>
+            <li><a href="">导航02</a></li>
+            <li><a href="">导航03</a></li>
+            <li><a href="">导航04</a></li>
+            <li><a href="">导航05</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <p>我是新闻01</p>
+        <p>我是新闻02</p>
+        <p>我是新闻03</p>
+        <p>我是新闻04</p>
+        <p>我是新闻05</p>
+        <p>我是新闻06</p>
+        <p>我是新闻07</p>
+        <p>我是新闻08</p>
+        <p>我是新闻09</p>
+        <p>我是新闻10</p>
+    </div>
+    <script>
+        var  nav = document.querySelector('nav')
+        window.onscroll = function (){
+            var h = document.documentElement.scrollTop ||document.body.scrollTop;
+            console.log(h)
+            if(h>360){
+                //nav固定在顶部
+                nav.className = 'fixed'
+            }
+        }
+    </script>
+</body>
+
+</html>

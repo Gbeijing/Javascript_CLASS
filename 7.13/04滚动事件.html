@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            margin-bottom:100px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>我是01</p>
+    <p>我是02</p>
+    <p>我是03</p>
+    <p>我是04</p>
+    <p>我是05</p>
+    <p>我是06</p>
+    <p>我是07</p>
+    <p>我是08</p>
+    <p>我是09</p>
+    <p>我是10</p>
+    <script>
+        //滚动条事件
+        //pc端加载更多,楼梯滚动,滚动联动....
+        //移动端:下拉刷新,上拉加载更多,滚动联动...
+        window.onscroll = function(){
+            console.log('滚动了');
+            //滚动条到试图顶部窗口的高度
+            var h = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(h)
+
+            //1.获取滚动条滚动的高度
+            //2.指定滚动条滚动到某个位置
+            //3.结合动画实现某个效果
+        }
+    </script>
+    
+</body>
+
+</html>
