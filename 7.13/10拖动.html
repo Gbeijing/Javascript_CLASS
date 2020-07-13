@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        .box{
+
+        .box {
             width: 100px;
             height: 100px;
             background-color: cyan;
@@ -18,26 +20,30 @@
         }
     </style>
 </head>
+
 <body>
     <div class="box"></div>
     <script>
         var box = document.querySelector('.box');
-        box.onclick =function (event){
+        box.onclick = function (event) {
             //通过获取鼠标移动距离,将距离赋值给元素的left top属性来实现元素的移动
-            document.onmousemove = function (e){
+            document.onmousemove = function (e) {
+                var x = event.offsetX;
+                var y = event.offsetY;
                 // console.log(e.clientX);
-                box.style.left = e.clientX-50+'px';
-                box.style.top = e.clientY-50+'px';
-              
+                box.style.left = e.clientX -x + 'px';
+                box.style.top = e.clientY - y+ 'px';
+
                 //BUG:1默认的body 8px导致鼠标不在元素上;
 
                 //需求:鼠标不在元素中间
                 //*******clientX减去宽度的一半********
 
                 //需求:在哪里点击就在那里拖动
-                var x = event.offset
+               
             }
         }
     </script>
 </body>
+
 </html>
