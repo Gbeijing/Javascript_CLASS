@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: coral;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.querySelector('.box');
+            box.onmousedown = function (event) {
+                var x = event.offsetX;
+                var y = event.offsetY;
+                document.onmousemove = function (event) {
+                    //如何获取left的最大值和最小值
+
+                    var moveX = event.clientX - x;
+                    var moveY = event.clientY - y;
+                    if (moveX <= 0) {
+                        moveX = 0;
+                    }
+                    if (moveX >= innerWidth - 150) {
+                        moveX = innerWidth - 150
+                    }
+                    if (moveY <= 0) {
+                        moveY = 0;
+                    }
+                    if (moveY >= innerWidth - 150) {
+                        moveY = innerWidth - 150
+                    }
+                    box.style.left = moveX + 'px';
+                    box.style.top = moveY + 'px';
+
+                    //处理BUG鼠标出边界后再回来可以不用按=====>鼠标移动事件没取消
+                    if (event.clientX > innerWidth ||
+                        event.clientY > innerHeight ||
+                        event.clientX < 0 ||
+                        event.clientY < 0) {
+                        document.onmousemove = null
+                        // document.onmousedown = null
+                    }
+                }
+            }
+            box.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
