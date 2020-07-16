@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        addClass(box,'wrap');//给元素添加类名
+        /*
+         *addcalss of method can add className to Element
+         *option(ele,string)
+         */
+        function addClass(ele,str){
+            var list = ele.classList;
+            list.add(str);
+            return ele;
+        }
+        addClass(box,'guKun')
+        console.log(box)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>清空</button>
+    <script>
+        // var query=location.search
+        // query = query.replace('?',' ');
+
+        // console.log(query)
+
+        //getItem() 从sessionStorage中获取某个str属性的值
+        var username = sessionStorage.getItem('username')
+        document.querySelector('button').onclick = function (){
+            //clear()清空sessionStorage中所有数据
+            sessionStorage.clear()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="none">隱藏</button>
+    <button class="show">显示</button>
+    <div class="box"></div>
+    <script src="./todos.js"></script>
+    <script>
+        var box = document.querySelector('.box');
+        var none = document.querySelector('.none')
+        var p = document.querySelector('.show')
+        p.onclick = function () {
+            show(box);
+        }
+        none.onclick = function () {
+            hide(box);
+        }
+        // hide(box);//渐入式隐藏HTML元素
+        /*
+         * element was hide
+         */
+        // function hide(ele) {
+        //     var val = 1;
+        //     ele.style.opacity = val;
+        //     var timer = setInterval(function () {
+        //         val -= 0.1;
+        //         if (val <= 0) {
+        //             ele.style.opacity = 0;
+        //             ele.style.display = 'none';
+        //             clearInterval(timer);
+        //             return
+        //         }
+        //         ele.style.opacity = val;
+        //     }, 50)
+        //     return ele
+        // }
+        // setTimeout(function(){
+        //     show(box)
+        // },1000)
+        //show显示hide的方法
+
+        // function show(ele) {
+        //     ele.style.display = 'block';
+        //     ele.style.opacity = 0
+        //     var val = 0
+        //     var timer = setInterval(function () {
+        //         val += 0.1;
+        //         if (val >= 1) {
+        //             ele.style.opacity = 1;
+
+        //             clearInterval(timer);
+        //             return
+        //         }
+        //         ele.style.opacity = val;
+        //     }, 100)
+        //     return ele
+
+
+        // }
+    </script>
+</body>
+
+</html>

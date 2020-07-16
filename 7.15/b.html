@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>跳转到c</button>
+    <script>
+        var str = '数据b';
+        //从b页面到c页面时候;需要将b中数据传入c中=====>页面间传值
+        //1.url传值=====>穿少量的字符串数据
+        //2.sessionStorage
+        //3.localStorage
+
+        var btn  = document.querySelector('button');
+        btn.onclick=function(){
+            location.href = './c.html?str='+str
+           
+        }
+        var obj = {
+            username:'ffff',
+            password:'sssssssssssss',
+            token:'aaaaaaaaaaaaaaaaaaaaa',
+        }
+        console.log(sessionStorage)
+        //1.a中往sessionStorage中存数据
+        //2.其他页面中sessionStorage取数据
+        btn.onclick=function(){
+            //setItem()设置,新增,修改sessionStorage中数据
+            sessionStorage.setItem('obj',obj);
+            for(var x in obj){
+                sessionStorage.setItem(x,obj[x])
+            }
+            location.href='./c.html'
+        };
+    </script>
+</body>
+</html>

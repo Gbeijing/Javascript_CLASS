@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    BOm 窗口对象
+    最大的是window
+    iframe是一个窗口,不能通过window获得
+    <!-- a默认事件是:跳转链接并进行页面刷新;
+        通过修改url地址完成链接跳转 -->
+    <a href="./a.html?name='gk'&age=22"><button>跳转a</button></a>
+    <script>
+        //url地址    ********很重要
+        //如何通过js获取url地址信息?  location
+        console.log(location.href);
+        console.log(location.origin);
+        console.log(location.pathname);
+        //https://baidu.com?name='gk'&age=21
+            // var urlObj ={
+            //     origin:'https//',
+            //     ip:'baidu.com',
+            //     params:{
+            //         name:'gk',
+            //         age:21,
+            //     }
+            // }
+        document.querySelector('button').onclick = function(){
+            location.href = './a.html' //重定向
+        }
+
+        //window 是最大的对象 
+        //不能通过window 直接获取iframe窗口中嵌入的页面
+    </script>
+</body>
+
+</html>

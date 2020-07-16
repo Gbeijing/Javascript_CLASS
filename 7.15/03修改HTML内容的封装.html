@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>到达</div>
+    <script>
+       
+        //html()//修改某一元素中的内容 ===> //元素不确定新的内容也不确定
+        /*
+         *html of method is to change innerHTML of Elements
+         */
+        function html(ele,str){
+            ele.innerHTML = str
+            return ele
+        }
+        var div = document.getElementsByTagName('div')[0];
+        html(div,'你好世界')
+    </script>
+</body>
+</html>
