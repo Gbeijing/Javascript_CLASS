@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1: 以数字字母开头 匹配结果字符长度为8为
+    2：匹配一个数字字符字符长度为18为
+    3: 手机号码正则
+    4: 邮箱的验证码
+    5：写一个 8-12 位的密码验证。
+    6：http开头 中间为任意字符，长度不限，结尾必须是.com.cn
+    <script>
+        var reg1 = /^[0-9a-zA-Z]{8}$/g;
+        var reg2 = /\d{18}$/g;
+        var reg3 = /^[1][3|4|5|7|8|9][0-9]{9}$/g;  //验证要严谨
+        var reg4 = /^[0-9a-zA-Z]{1,32}@[qq|sina|163|192]\.[cn|com]$/g
+        var reg5 = /^\w{8,12}$/g;
+        var reg6 = /^[http].+\.[com|cn]$/
+
+        var res = /^(http):\.\/\/[www|ap].\w{0,3}\.(com)$/
+    </script>
+</body>
+
+</html>

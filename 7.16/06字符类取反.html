@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /[^0-9]/g  //除了0-9其他都匹配
+        var str = 'dfjewdf545656'
+        var reg2 = /[^a-z]/gi
+        var reg3 = /[^0-9a-z]/gi
+        var str2 = 'fjkhdkjDDD年大佛寺讲道理'
+        console.log(str2.match(reg3))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /'[0-9][a-z]'/gi
+        //匹配两个字符 ,每个长度为1,总长度为2
+        //结果一定是数字+字母
+        
+        //从0-9中拿一个,再从a-z拿一个,拼成一个字符
+        var str = 'fd5f45df5D5fd5G5d1f5d1f51d5f1dd5'
+        console.log(str.match(reg))
+    </script>
+</body>
+
+</html>

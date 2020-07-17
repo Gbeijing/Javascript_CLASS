@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 量词 设置匹配字符长度
+        // {m,n}匹配字符长度最小是m,最大n
+        // {n,}匹配字符长度最小是n,最大不限
+        // {n}匹配字符长度为n
+
+
+        //. 任意字符  \. 转义字符
+        //验证长度为3的任意字符
+        // var reg = /.{3}/g;
+        // var str = 'dsff';
+        // console.log(str.match(reg));
+        
+        //只能输入数字,不限制长度
+        // var reg = /^[0-9]{1,}$/;
+        // var str = '3213213l';
+        // console.log(str.match(reg));
+        //验证某一个字符是否符合正则
+        //exce():方法检索字符串中的指定值,返回被找到的值,如果没有返回null
+        // test():验证某一字符是否符合正则表达式,返回布尔值
+        // console.log(reg.test(str));
+
+
+        // 匹配首或尾为空格
+        var str3 = '    dddddddd  dddddd   '
+        var reg1 = /^\s{1,}|\s{1,}$/g;
+        console.log(str3.replace(reg1,'够'));
+
+        //去掉字符串中所有空格
+        //1.匹配所有空格
+        var reg4 = /\s{1,}/g;
+        console.log(str3.replace(reg4,'够'));
+    </script>
+</body>
+
+</html>

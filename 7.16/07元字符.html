@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var reg = /[0-9]/g  
+        var reg = /\d/g             //匹配0-9字符
+        var reg = /[0-9a-zA-Z_]/g //数字字母下滑线
+        var reg = /[\w]/g //匹配数字字母下滑线
+
+        var reg1 = /^\d[a-zA-Z]$/g  //仅能匹配字符长度为2 开始是数字结尾
+        var str  = '3d'
+        var str2 = 'gfdkjfdgkjgf2dslfk3dfdf'
+        console.log(str.match(reg1))
+        console.log(str2.match(reg1))
+
+        //匹配 必须以1开头结尾无所谓,长度不限
+        var reg3 = /^[1][^\s]{1,}/g;
+        var str3 = '1fkjfdffd5455';
+        var str4 ='dddf65f456';
+
+        // console.log(str3.match(res3))
+        // console.log(str4.match(res3))
+
+        //手机号  仅匹配开头为1的11位数字
+        var reg = /^\d{10}$/g
+
+        //边界类
+
+        var str8 = '王宇航是 河南人 , 他 不是一个大学生'
+        var reg7 = /\B是\B/g;
+        console.log(str8.match(reg7));
+
+        var str9 = 'msdflk jlk is   fmdlkm flkis dflkf'
+        var res8 = /\bis\b/g;
+        console.log(str9.match(reg8));
+
+    </script>
+
+    
+</body>
+
+</html>

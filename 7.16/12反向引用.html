@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var str = 'xxxx-ss-aa'
+    var year = 2020;
+    var mounth = 07;
+    var date = 16;
+
+    var reg = /(xxxx)[-](ss)[-](aa)$/
+    console.log(str.match(reg));
+    console.log(RegExp.$1);
+    console.log(RegExp.$2);
+    console.log(RegExp.$3);
+    
+    //通过反向引用获取分组中内容
+    //外部$1$2$3
+    //RegExp.$1:第一个分组中匹配结果
+    //RegExp.$2:第二个分组中匹配结果
+    //RegExp.$3:第三个分组中匹配结果
+
+    //正则表达式内部的反向引用
+    // (.)---->d
+    // (顾坤)---->顾坤
+    // \1----->d
+    // \1{4} ---->dddd
+    // \2 ---->顾坤
+    // ---->d顾坤dddd顾坤
+    var reg2 = /(.)(顾坤)\1{4}\2/g;
+    var str = 'd顾坤dddd顾坤顾坤顾坤顾坤kjdfjk';
+    console.log(str.match(reg2));
+    </script>
+</body>
+
+</html>

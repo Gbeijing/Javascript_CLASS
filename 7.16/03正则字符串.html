@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //正则字符分为原义字符;特殊字符
+        //原义文本字符:原本意义的文本字符
+
+        var reg = /[a]/;
+        var reg1 = /[0123456789]/g; //每个字符长度1,可以得到多个结果
+        var reg2 = /[0123456789]{2,4}/g; //{}设置每个字符长度为2
+        console.log('dfs121111d5d31211dfs'.match(reg2))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 'a wersd regular exprution'
+        //断言是匹配字符的条件判断,断言不会匹配具体字符
+        var reg = /e(?=gular)/g; //匹配的e条件是:e右面的字符是否等于gular
+        console.log(reg.exec(str));
+        console.log(str.replace(reg, '我'));
+
+        var reg1 = /\w(?>3)/g;
+        var reg2 = /\w(?=\d{5})/g;
+        var str1 ='s3s3'
+        var str2 = 'd45666666d1231321'
+        console.log(reg.exec(str1));
+        console.log(reg.exec(str2));
+
+
+
+        //正则表达式匹配方式 :从左向右
+        //前瞻:匹配字符时候,还需要往右看看是否有满足某个条件,也叫正向匹配
+        //匹配时往左看时候:负向匹配
+
+        //字符串尾部叫前
+        //字符串头部是后
+
+        //匹配re 但不想匹配开头为re的单词
+        var str4 = 'regex represents regular expression';
+        var reg5 = /(?<=\w)re/g
+        console.log(str4.replace(reg5,'宁'));
+    </script>
+</body>
+
+</html>
