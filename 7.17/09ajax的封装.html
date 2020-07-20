@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //用法
+        ajax(
+            {
+                method:'get',
+                data:{
+                    page:1
+                },
+                url:'www.baidu.com',
+                success:function(data){
+                    console.log(data);//是响应数:xhr
+                },
+                error:function(){ 
+                    console.log(err);
+                },
+                async:true
+            }
+        )
+    
+        function ajax(option){
+            var xhr = new XMLHttpRequest();
+            var {method,data,url,success,error,async} = option      
+            if( method=== 'get'||method === 'GET' ){
+                xhr.open(method,url);
+                xhr.send();
+                xhr.onreadystatechange = function (){
+                    // if()
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

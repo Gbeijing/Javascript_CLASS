@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>{{msg}}</h1>
+    <div>{{name}}</div>
+
+</body>
+    <script>
+        var date = {
+            msg: '我是内容',
+            name: '家具家电'
+        }
+        var h1 = document.querySelector('h1');
+        var div = document.querySelector('div');
+        var h1val = h1.innerHTML;
+        var divVal = div.innerHTML;
+        // var reg = /\{\{(\w+)\}\}/g
+        // h1.innerHTML=  h1val.replace(/\{\{(\w+)\}\}/,function(a,b,c){
+        //     console.log(a);
+        //     console.log(RegExp.$1);
+        //     return  date[RegExp.$1]
+        // });
+        // div.innerHTML = divVal.replace(/\{\{(\w+)\}\}/,function(a,b,c){
+        //     console.log(a);
+        //     console.log(RegExp.$1);
+        //     return  date[RegExp.$1]
+        // })
+
+        // function replaceVal(el){
+        //     var str = el.innerHTML;
+        //     el.innerHTML = str.replace(/\{\{(\w+)\}\}/,function(a,b,c){
+        //         for(var x in date){
+        //             if(x===RegExp.$1){
+        //                 return date[x]
+        //             }
+        //         }
+        //     })
+        // } 
+        // replaceVal(h1);
+        // replaceVal(div)
+        function replace(date) {
+            var template = document.body.innerHTML;
+            var res =template.replace(/\{\{(\w+)\}\}/g,function(a,b,c){
+               var reg = /\w+/
+               var newVal = a.match(reg)[0]
+               for (var x in date){
+                   if(x ===newVal){
+                       return date[x]
+                   }
+               }
+            })
+            document.body.innerHTML = res
+        }
+        replace(date)
+    </script>
+
+</html>

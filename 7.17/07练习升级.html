@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+        }
+
+        .left img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .right {
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <!-- <li>
+            <div class="left">
+                <img src="https://p1.music.126.net/_d1scu7z_1dmd0Zgv9mTLA==/19165587183900212.jpg" alt="">
+            </div>
+            <div class="right">
+                <span>陈奕迅</span>
+            </div>
+        </li> -->
+    </ul>
+    <script>
+        var list = document.querySelector('#list')
+        var url = 'http://192.168.1.123:3000/';//服务器地址
+        ajax('GET', url,function(data){
+            // console.log(data,'================'); //data接受响应数据
+            var data = JSON.parse(data)  //将一个 JSON 字符串转换为对象
+            console.log(data)
+            if(data.code==200){
+                var {artists} =data;
+                var template="";
+                for(var i=0;i<artists.length;i++){
+                    var {name,img1v1Url}  =artists[i];                    
+                    template += `<li>
+                <div class="left">
+                    <img src="${img1v1Url}" alt="">
+                 </div>
+                  <div class="right">
+                        <span>${name}</span>
+                        </div>
+             </li>`;
+                };
+                list.innerHTML =template
+            }
+        });
+        // console.log(data);
+        function ajax(method, url,callback) { 
+            var xhr = new XMLHttpRequest();
+            var res = {}
+            xhr.open(method, url);  //async：true（异步）或 false（同步）
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                //异步的 后执行
+                if (xhr.status == 200 && xhr.readyState == 4) { //请求成功
+                    res = xhr.response
+
+                    // console.log(res);                       
+                    callback(res)//在请求成功后执行回调函数
+                } else {
+                    res = {
+                        error: '请求失败出现问题 '
+                        
+                    }
+                    callback(res)
+                }
+            }
+            //先执行  ====>将return写在异步程序中
+            // return res
+        }
+    </script>
+</body>
+
+</html>

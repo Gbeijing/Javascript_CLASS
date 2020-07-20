@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form {
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border: 1px solid #dddddd;
+            transform: translate(-50%, -50%);
+            padding: 20px 14px;
+            box-shadow: 5px 5px 5px #cccccc;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 5px;
+        }
+
+        .form-control label {
+            font-size: 14px;
+            color: #336633;
+        }
+
+        .form-control input {
+            outline: none;
+            font-size: 18px;
+            border: 1px solid #336633;
+            padding: 0 10px;
+        }
+
+        .form-control p {
+            color: crimson;
+            font-size: 12px;
+            text-align: left;
+            margin-left: 50px;
+            margin-top: 10px;
+            /* visibility: visible; */
+            display: none;
+        }
+
+        .login {
+            width: 85%;
+            margin-left: 20px;
+            height: 30px;
+            text-align: center;
+            color: white;
+            background-color: yellowgreen;
+            border-radius: 10px;
+            outline: none;
+            appearance: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="form-control">
+            <label for="">用户名:</label>
+            <input type="text" name="username " id="username">
+            <p class="userTip">请输入6-16位的数字或字母</p>
+        </div>
+        <div class="form-control">
+            <label for="">密&#X3000;码:</label>
+            <input type="password" name="password" id="password">
+            <p class="passTip">请输入8-12位的开头为大写的字母,数字下划线</p>
+        </div>
+        <div>
+            <button class="login">登录</button>
+        </div>
+    </form>
+    <script>
+        var btn = document.querySelector('.login');
+        var username = document.querySelector('#username');
+        var password = document.querySelector('#password');
+        var userTip = document.querySelector('.userTip');
+        var passTip = document.querySelector('.passTip');
+     
+        btn.onclick = function (e) {
+            e.preventDefault();
+            var user = username.value;
+            var pass = password.value;
+            var reg = /^[a-zA-Z0-9]{6,16}$/;
+            var reg1 = /^[A-Z]\w{7,11}$/;//贪婪匹配能匹配9就不匹配8
+            if (!reg.test(user)) {
+                userTip.style.display = "block";
+            } else {
+                userTip.style.display = 'none'
+            }
+            if (!reg1.test(pass)) {
+                passTip.style.display = "block";
+            } else {
+                passTip.style.display = 'none'
+            }
+            if (reg.test(user) && reg1.test(pass)) {
+
+
+                alert('登录成功')
+            }
+
+        }
+    </script>
+</body>
+
+</html>

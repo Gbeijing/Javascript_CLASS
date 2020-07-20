@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <button>点击发送请求</button>
+    <script>
+
+
+        // AJAX = 异步 JavaScript 和 XML,是一种用于创建快速动态网页的技术。
+
+
+        var btn = document.querySelector('button')
+        btn.onclick = function () {
+            //实例化一个xhr对象
+            var xhr = new XMLHttpRequest();
+
+            //请求地址
+            var url = 'http://musicapi.leanapp.cn/artist/list';
+            console.log(xhr);
+        
+        //xhr如何向服务器发送请求
+        //1.服务器地址是什么?某一个接口的地址什么?
+        //2.请求方式是什么? get pose 
+        //3.接通接口需要什么参数?===>请求参数
+
+            // open()参一:get请求/post请求;参二:请求地址;参三:get请求的请求参数(async：true（异步）或 false（同步）)
+        xhr.open('GET',url);
+        xhr.send();     //发送请求;参数:是post的请求参数,为字符串
+
+        //web浏览器如何接受浏览器响应? 成功  失败
+
+        // 处理响应
+        //成功
+        //监听服务器响应的事件
+        xhr.onreadystatechange = function(data){
+            console.log(data); //事件对象
+            
+            //获取响应数据
+            var dataJson = xhr.responseText;
+            dataJson = JSON.parse(dataJson);
+            console.log(xhr);
+            console.log(dataJson);
+            console.log(xhr.status);//响应的状态: 200 http状态码,表示通信成功
+            console.log(xhr.response)//响应体中内容:存放响应数据
+        }
+    }
+
+    //跨域拦截 
+    </script>
+
+</body>
+
+</html>

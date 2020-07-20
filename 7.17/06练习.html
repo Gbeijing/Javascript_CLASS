@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+        }
+
+        .left img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .right {
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <!-- <li>
+            <div class="left">
+                <img src="https://p1.music.126.net/_d1scu7z_1dmd0Zgv9mTLA==/19165587183900212.jpg" alt="">
+            </div>
+            <div class="right">
+                <span>陈奕迅</span>
+            </div>
+        </li> -->
+    </ul>
+    <script>
+        var data = {
+            code: 200.,
+            more: true,
+            artList: [
+                {
+                    albumSize: 105,
+                    alias: ["Eason Chan"],
+                    briefDesc: "",
+                    followed: false,
+                    id: 2116,
+                    img1v1Id: 19165587183900212,
+                    img1v1Id_str: "19165587183900212",
+                    img1v1Url: "https://p1.music.126.net/_d1scu7z_1dmd0Zgv9mTLA==/19165587183900212.jpg",
+                    musicSize: 1802,
+                    name: "陈奕迅",
+                    picId: 18641120139241412,
+                    picId_str: "18641120139241412",
+                    picUrl: "https://p1.music.126.net/nILBk4DaE3yV__25uq-5GQ==/18641120139241412.jpg",
+                    topicPerson: 0,
+                    trans: "",
+                },
+                {
+                    albumSize: 105,
+                    alias: ["Eason Chan"],
+                    briefDesc: "",
+                    followed: false,
+                    id: 2116,
+                    img1v1Id: 19165587183900212,
+                    img1v1Id_str: "19165587183900212",
+                    img1v1Url: "https://p1.music.126.net/_d1scu7z_1dmd0Zgv9mTLA==/19165587183900212.jpg",
+                    musicSize: 1802,
+                    name: "薛之谦",
+                    picId: 18641120139241412,
+                    picId_str: "18641120139241412",
+                    picUrl: "https://p1.music.126.net/nILBk4DaE3yV__25uq-5GQ==/18641120139241412.jpg",
+                    topicPerson: 0,
+                    trans: "",
+                }
+            ]
+        };
+        console.log(data)
+        var list = document.querySelector('#list');
+        var { artList, code, more } = data// ==>var artList = data.artList
+       /* if (code = 200) {
+            window.onload = function () {
+                var template =""
+                for (var i = 0; i < data.artList.length; i++) {
+                    console.log(artList[i]);
+                    var { img1v1Url, name } = artList[i];
+                    template += `<li>
+                <div class="left">
+                    <img src="${img1v1Url}" alt="">
+                 </div>
+                  <div class="right">
+                        <span>${name}</span>
+                        </div>
+             </li>`;
+                    // console.log(template)
+                    //1.要么把template变为dom
+                    //2.要么直接添加字符串======>********主要方法,利用字符串拼接
+                    // list.appendChild(template)//*****appendChild()括号内必须为节点*****
+                }
+                list.innerHTML =template //如果不先赋值为字符串并+=;n那么插入页面的只能是最后一个,所以用字符串拼接
+            }
+        }
+*/
+
+
+        //方法一***********
+        if (code = 200) {
+            window.onload = function () {
+                var template =""
+                for (var i = 0; i < data.artList.length; i++) {
+                    console.log(artList[i]);
+                    var { img1v1Url, name } = artList[i];
+                    template += `<li>
+                <div class="left">
+                    <img src="${img1v1Url}" alt="">
+                 </div>
+                  <div class="right">
+                        <span>${name}</span>
+                        </div>
+             </li>`;
+                    // console.log(template)
+                    //1.要么把template变为dom
+                    var parser = new DOMParser()
+                    var doc = parser.parseFromString(template,'text/html')
+                    console.log(doc.body.childNodes[0]);
+                    list.appendChild(doc.body.childNodes[0])
+                }
+            
+            }
+        }
+
+    </script>
+</body>
+
+</html>
