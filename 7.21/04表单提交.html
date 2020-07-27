@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+</head>
+<body>
+    <form action="">
+        <label for="">
+            <input type="text" name="username" id="">
+        </label>
+        <div>
+            <select name="city" id="city">
+                <option value="nanjing">南京</option>
+                <option value="haerbin">哈尔滨</option>
+                <option value="mudanjiang">牡丹江</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" value="liulan">浏览
+            <input type="checkbox" value="pinguo">拼过
+            <input type="checkbox" value="aaa">aaa
+        </div>
+        <div>
+            <input type="radio" id="female" name="sex" value="nv">女
+            <input type="radio" id="male" name="sex" value="nan">男
+        </div>
+        <div>
+            <button>提交</button>
+        </div>
+    </form>
+    <script>
+        $('form').on('submit',function(e){
+            e.preventDefault()
+            var res = $('form').serializeArray();
+            console.log(res); 
+            //checkbox
+            console.log($('input:checked'));
+            
+        })
+    </script>
+</body>
+</html>

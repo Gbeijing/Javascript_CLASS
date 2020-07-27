@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <h2>我是01</h2>
+        <h2>我是02</h2>
+        <h2>我是03</h2>
+        <h2>我是04</h2>
+        <h2>我是05</h2>
+        <div>我是neirong</div>
+    </div>
+    <script>
+        var h2 = $('h2')
+        $('.wrap').on('click',h2,function(e){
+            //指向绑定事件的元素
+            console.log($(this));
+            console.log($(e.currentTarget));
+            //指向触发事件的元素
+            console.log($(e.originalEvent.target));
+
+            //指向点击h2才变色 ,div不变
+            //localName获取触发事件的标签名
+            e.originalEvent.target.localName =='h2' 
+            ? $(e.originalEvent.target).css({color:'red'})
+            : $(e.originalEvent.target).css({color:''})            
+        })
+    </script>
+</body>
+
+</html>

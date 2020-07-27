@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../7.20jQuery/jquery-3.4.0.js"></script>
+</head>
+<body>
+    <button>点击</button>
+    <iframe src="./a.html" frameborder="0" id="ifm"></iframe>
+    <script>
+        //点击按钮获取a.html中的p
+        window.a='111'
+        $('button').on('click',function(){
+            //*********安装插件live server,打开页面不是在本地 而是在域中获取(看地址不同)**************
+            //1.获取iframe窗口
+            var res = $('#ifm')[0].contentWindow;
+            //2 获取dom对象
+            var p =res.document.querySelector('p')
+            console.log($(p).css({color:'red'}));
+        })
+
+    </script>
+    <script>
+       
+        //1.iframe===>contentWindow
+        // 父窗口  子窗口
+
+        //1.如何在父窗口获取子窗口页面中的dom元素
+        //2.如何将数据从子窗口传递给父窗口  (子传父)
+        //3.如何将父窗口传递给子窗口            (父传子)
+    </script>
+</body>
+</html>

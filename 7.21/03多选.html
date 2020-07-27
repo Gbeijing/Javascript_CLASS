@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="" id="" value="1">苹果
+    <input type="checkbox" name="" id="" value="2">香蕉
+    <input type="checkbox" name="" id="" value="3">栗子
+    <input type="checkbox" name="" id="" value="4">西红柿
+    <input type="checkbox" name="" id="" value="5">韭菜
+    <button>提交</button>
+    <script>
+        //如何获取用户勾选的内容
+        // var checkArr=[] //用来存放所有勾选的值
+        // $('input=checkbox').on('change',function(){
+        //     console.log();
+        // })
+
+        $('button').on('click',function(){
+            var checkArr=[] //用来存放所有勾选的值
+            //获取被选中元素
+            $('input:checked').each(function (index ,item){
+                console.log((item.value));
+                checkArr.push(item.value);
+            })
+            console.log($('input:check'),checkArr);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div id="content">
+    <p>我是那个圈</p>
+    <input type="text" name="username" id="username">
+    <button>子页面点击</button>
+</div>
+<script src="../7.20jQuery/jquery-3.4.0.js"></script>
+<script>
+    //这里的window对象是子窗口对象
+    //======>被iframe加载的页面是window是iframe窗口的window
+    
+    //需求:将子窗口username传递到父窗口中
+    //1.获取本地窗口
+    //2.获取父窗口,并对父窗口赋值
+
+    $('button').on('click',function(e){
+        e.preventDefault();
+    //1.获取本地窗口
+        var username = $('#username').val()
+        console.log(username);
+    //2.获取父窗口,并对父窗口赋值
+        var parentWindow = window.parent;
+        console.log(parentWindow);
+        //在浏览器窗口下声明了一个username
+        parentWindow.username = username
+        parentWindow.a = username
+    })
+</script>

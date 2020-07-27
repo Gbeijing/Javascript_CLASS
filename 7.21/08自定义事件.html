@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button>点击</button>
+    <script>
+        $('.box').on('feifei',function(event,data){
+            console.log('自定义函数出发了');
+            console.log(event,'data');
+            console.log(data,'event');
+
+        });
+        $('button').on('click',function(){
+            //trigger()触发自定义事件
+            //参数一:事件名;参数二:给事件处理函数传入实参
+            $('.box').trigger('feifei',{
+                nv:'李静',
+                nan:'顾坤'
+            })
+        })
+    </script>
+</body>
+
+</html>

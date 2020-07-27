@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .glass {
+            width: 600px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .bigImage {
+            width: 470px;
+            height: 270px;
+
+        }
+
+        .bigImage img {
+            display: none;
+            width: 470px;
+            height: 270px;
+        }
+
+        /* .active{
+            display: block !important;
+        } */
+        .glassView {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            right: -200px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .glassView img {
+            width: 940px;
+            height: 540px;
+            display: none;
+        }
+
+        .smImage {
+            width: 470px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .smImage img {
+            width: 150px;
+            height: 80px;
+            opacity: 0.5;
+        }
+
+        .mark {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glass">
+        <!-- 放大镜图片 -->
+        <div class="glassView">
+            <img src="./images/1.jpg" alt="">
+            <img src="./images/2.jpg" alt="">
+            <img src="./images/3.jpg" alt="">
+            <!-- <img src="./images/4.jpg" alt=""> -->
+        </div>
+        <!-- 大图 -->
+        <div class="bigImage">
+            <img src="./images/1.jpg" alt="" class="active">
+            <img src="./images/2.jpg" alt="">
+            <img src="./images/3.jpg" alt="">
+            <!-- <img src="./images/4.jpg" alt=""> -->
+            <!-- 放大镜标记 -->
+            <div class="mark"></div>
+        </div>
+        <!-- 缩略图 -->
+        <div class="smImage">
+            <img src="./images/1.jpg" alt="">
+            <img src="./images/2.jpg" alt="">
+            <img src="./images/3.jpg" alt="">
+            <!-- <img src="./images/4.jpg" alt=""> -->
+        </div>
+
+    </div>
+    <script>
+        //第一步:css初始化样式全部为不选中状态
+        //第二步:处理浏览器加载的样式,在css基础上
+        $(window).ready(function () {
+            //第一个功能tab切换
+            var x = 0
+            $('.bigImage>img:eq(' + x + ')').css({
+                display: 'block',
+            });
+            $(`.smImage>img:eq(${x})`).css({
+                opacity: 1
+            })
+
+            $('.smImage>img').on('mouseover', function () {
+                $('.bigImage>img:eq(' + x + ')').css({
+                    display: 'none',
+                });
+                $(`.smImage>img:eq(${x})`).css({
+                    opacity: 0.5
+                })
+                x = $(this).index()
+
+                $('.bigImage>img:eq(' + x + ')').css({
+                    display: 'block',
+                });
+                $(`.smImage>img:eq(${x})`).css({
+                    opacity: 1
+                })
+            })
+
+            //第二个功能  mark的显示隐藏
+            //鼠标移动到bigImage mark 为显示;移出为隐藏
+            $('.bigImage').on('mouseenter', function () {
+                $('.mark').css({
+                    display: 'block'
+                })
+                // $('.bigImage').on('mouseover', function (e) {
+                //     var moveX = e.offsetX;
+                //     var moveY = e.offsetY;
+                //     $('.mark').css({
+                //         left: moveX + 'px',
+                //         top: moveY + 'px'
+                //     })
+                // })
+            })
+            $('.bigImage').on('mouseleave', function () {
+                $('.mark').css({
+                    display: 'none'
+                })
+            })
+            
+        })
+    </script>
+</body>
+
+</html>
