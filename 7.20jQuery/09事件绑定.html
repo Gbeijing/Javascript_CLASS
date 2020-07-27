@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+
+</head>
+
+<body>
+    <button>点击</button>
+    <button class="show">显示</button>
+    <div class="box"></div>
+    <script>
+        $('.box').css({
+            width:'100px',
+            height:'100px',
+            background:'red'
+        })
+        $('button').on('click',function(){
+            console.log('大幅度发')
+            $('.box').hide(500,function (){
+                //隐藏动画
+                alert('隱藏')
+            })
+        })
+    </script>
+</body>
+
+</html>

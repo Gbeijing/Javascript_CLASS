@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <button class="show">显示</button>
+    <button class="hide">逆藏</button>
+    <div class="box"></div>
+    <script>
+        //.on()绑定点击事件
+        //参数一:点击事件名
+        //参数二:函数体
+        //参数三:为冒泡不冒泡:一般默认不穿
+        $('.show').on('click',function(){
+            console.log('225');
+            //点击show 让box显示
+            $('.box').show()
+        })
+        $('.hide').on('click',function(){
+            $('.box').hide()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            width: 500px;
+            height: 50px;
+            text-align: left;
+            border: 1px solid #ccc;
+            line-height: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            padding-left: 20px;
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+        
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <script src="./jquery-3.4.0.js"></script>
+    <script>
+        var news = [
+            '今天天气真好啊',
+            '昨天更美好',
+            '111111111111',
+            '22222222222',
+            '333333333333',
+            '44444444444',
+            '55555555555',
+            '666666666666',
+        ]
+        news.forEach(function (item) {
+            $('.wrap').append(`<p>${item}</p>`);
+        })
+        setInterval(function () {
+            $('p:first').animate({
+                marginTop: '-50px'
+            })
+            setTimeout(function () {
+                $('p:first').css({
+                    marginTop: '0px'
+                })
+                $('.wrap').append($('p:first'))
+            }, 1000)
+        }, 1100)
+    </script>
+</body>
+
+</html>

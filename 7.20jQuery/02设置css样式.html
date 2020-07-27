@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+    <style>
+        .active{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        //css(options)给元素设置样式,返回jquery对象
+        //参数:对象  key:value  是css样式属性  注意:backgroundColor驼峰命名
+        // 优势:继续调用jQuery下api
+        $('.box').css({
+            width:'100px',
+            height:'100px',
+            background:'yellow'
+        }).hide().show()
+        
+        //通过类名方式修改css样式
+        //addClass(str)作用:给HTMl添加类名,并返回jQuery对象
+        //参数:类名字符串
+        $('div').addClass('active')
+    </script>
+</body>
+</html>

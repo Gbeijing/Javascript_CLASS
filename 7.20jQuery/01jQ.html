@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        地方了 
+    </div>
+    <script>
+        // 需求 $this 指向wyq 对象 9？？？？
+  
+        function $(str) {
+          return new wyq(str);
+        }
+  
+        function wyq(el) {
+          this.el = document.querySelector(el);
+        }
+  
+        // wyq 的原型对象下所有属性；都可以额比 wyq构造函数所实例化的对象执行直接访问
+        wyq.prototype = {
+          html: function (str) {
+            // 如何在方法中找到wyq 对象 --->this
+            console.log(this.el);
+            // 如果通过this 在wyq 对象内部找到  html标签
+            this.el.innerHTML = str;
+            return this; // 为了链式调用方法 返回wyq 对象
+          },
+          css: function (option) {
+            for (var x in option) {
+              this.el.style[x] = option[x];
+            }
+            return this;
+          },
+        };
+        // 隐藏
+        wyq.prototype.hide = function () {
+          var val = 1;
+          this.el.style.opacity = val;
+          var timer = setInterval(() => {
+            val -= 0.1;
+            if (val <= 0) {
+              this.el.style.opacity = 0;
+              this.el.style.display = "none";
+              clearInterval(timer);
+              return;
+            }
+            this.el.style.opacity = val;
+          }, 30);
+          return this;
+        };
+  
+        // 封装 给 wyq对象绑定事件
+        wyq.prototype.on = function (str, callback, async) {
+          // 如何给某一个元素绑定事件
+          // 1 通过wyq 对象获取元素
+          this.el.addEventListener(str, callback, async);
+          return this;
+        };
+        wyq.prototype.show = function () {
+          this.el.style.display = "block";
+          var val = 0;
+          this.el.style.opacity = val;
+          var timer = setInterval(() => {
+            val += 0.1;
+            if (val >= 1) {
+              this.el.style.opacity = 1;
+              clearInterval(timer);
+              return;
+            }
+            this.el.style.opacity = val;
+          }, 30);
+          return this;
+        };
+        wyq.prototype.getStyle = function (str) {
+          var res = null;
+          if (el.currentStyle) {
+            res = this.el.currentStyle[str];
+          } else {
+            // 非IE
+            res = getComputedStyle(this.el, null)[str];
+          }
+  
+          return res;
+        };
+        wyq.prototype.animate = function (str,end,time,callback) {
+          var start = this.getStyle(el, str);
+          start = parseInt(start);
+          console.log(str, start);
+          var s = end - start; // 求过度值
+          time = time * 1000;
+          var timer = setInterval( ()=> {
+            start += s / (time / 16.7);
+            if (s > 0) {
+              if (start >= end) {
+                str == "opacity" || str === "zIndex"
+                  ? (this.el.style[str] = end)
+                  : (this.el.style[str] = end + "px");
+                clearInterval(timer);
+                if (typeof callback === "function") {
+                  callback();
+                }
+              }
+            } else {
+              if (start <= end) {
+                str == "opacity" || str === "zIndex"
+                  ? (this.el.style[str] = end)
+                  : (this.el.style[str] = end + "px");
+                clearInterval(timer);
+                if (typeof callback === "function") {
+                  callback();
+                }
+              }
+            }
+  
+            // 普通的赋值 区分 哪些属性需要单位
+            // 处理【没有单位 css 属性】
+            if (str == "opacity" || str === "zIndex") {
+              this.el.style[str] = start;
+            } else {
+              this.el.style[str] = start + "px";
+            }
+          }, 16.7); // 浏览器刷新时间是16.7ms
+        };
+  
+        $("div").html("我很好").css({
+          color: "red",
+          fontSize: "30px",
+        });
+        // console.log($('div').html())
+        // 1：链式调用  所有的APi返回的都是同意个对象
+        $("div").on(
+          "click",
+          function () {
+            //   alert('你好事件')
+            $("div").hide();
+          },
+          true
+        );
+      </script>
+    </body>
+  </html>
+  
+  <script>
+    //   function css(el, option) {
+    //     for (var x in option) {
+    //       el.style[x] = option[x];
+    //     }
+    //   }
+  
+    //   function html(el, str) {
+    //     el.innerHTML = str;
+    //     return el;
+    //   }
+    //   function hide(el) {
+    //     var val = 1;
+    //     el.style.opacity = val;
+    //     var timer = setInterval(function () {
+    //       val -= 0.1;
+    //       if (val <= 0) {
+    //         el.style.opacity = 0;
+    //         el.style.display = "none";
+    //         clearInterval(timer);
+    //         return;
+    //       }
+    //       el.style.opacity = val;
+    //     }, 30);
+    //     return el;
+    //   }
+  
+    // function show(el) {
+    //     el.style.display = "block";
+    //     var val = 0
+    //     el.style.opacity = val;
+    //     var timer = setInterval(function () {
+    //       val += 0.1;
+    //       if (val >=1) {
+    //         el.style.opacity = 1;
+    //         clearInterval(timer);
+    //         return;
+    //       }
+    //       el.style.opacity = val;
+    //     }, 30);
+    //     return el
+    //   }
+  
+    // callback 表示 动画执行完毕后做其他事情
+    //   function ani(el, str, end, time, callback) {
+    //     // 错误优先元素
+    //     var len = arguments.length;
+    //     if (len === 0) {
+    //       throw new Error("args cannot length 0");
+    //     }
+    //     if (el.nodeType !== 1) {
+    //       throw new Error(`"Elemnent:" is not element `);
+    //     }
+    //     if (typeof str !== "string") {
+    //       throw new Error(`"cssStyle:" of DataType must be string `);
+    //     }
+    //     if (typeof end !== "number") {
+    //       throw new Error(`"cssStyleValue:" of DataType must be number  `);
+    //     }
+    //     if (typeof time !== "number") {
+    //       throw new Error(`"timer:" of DataType must be number `);
+    //     }
+    //     var start = getStyle(el, str);
+    //     start = parseInt(start);
+    //     console.log(str, start);
+    //     var s = end - start; // 求过度值
+    //     time = time * 1000;
+    //     var timer = setInterval(function () {
+    //       //   time/16.7 ----> fun 执行的次数
+    //       // s / time/16.7   每16.7ms 的值变化量 （平均值 ）
+    //       start += s / (time / 16.7);
+    //       // s 不同出口条件不同
+    //       if (s > 0) {
+    //         if (start >= end) {
+    //           // 出口前；也需要 el 的str 属性赋值 ；
+    //           // ---> 区分；哪些str 需要px 哪些不需要px
+    //           str == "opacity" || str === "zIndex"
+    //             ? (el.style[str] = end)
+    //             : (el.style[str] = end + "px");
+    //           clearInterval(timer); // 作用：标志着动画执行完毕
+  
+    //           // 作用:设置回掉函数可以传 也可以 不传
+    //           if (typeof callback === "function") {
+    //             callback();
+    //           }
+    //         }
+    //       } else {
+    //         if (start <= end) {
+    //           str == "opacity" || str === "zIndex"
+    //             ? (el.style[str] = end)
+    //             : (el.style[str] = end + "px");
+    //           clearInterval(timer);
+    //           if (typeof callback === "function") {
+    //             callback();
+    //           }
+    //         }
+    //       }
+  
+    //       // 普通的赋值 区分 哪些属性需要单位
+    //       // 处理【没有单位 css 属性】
+    //       if (str == "opacity" || str === "zIndex") {
+    //         el.style[str] = start;
+    //       } else {
+    //         el.style[str] = start + "px";
+    //       }
+    //     }, 16.7); // 浏览器刷新时间是16.7ms
+    //   }
+  
+    //   function getStyle(el, str) {
+    //     var res;
+    //     if (el.currentStyle) {
+    //       // ie
+    //       res = el.currentStyle[str];
+    //     } else {
+    //       // 非IE
+    //       res = getComputedStyle(el, null)[str];
+    //     }
+  
+    //     return res;
+    //   }
+    </script>
+</body>
+
+</html

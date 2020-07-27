@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <div class="box"></div>
+    <script>
+        //ele.append(str) 把str插入到ele尾部中
+        // $('.wrap').append('<p>我是添加到内容</p>')
+        //ele.appendTo(str) 把ele插入到str中
+        // $('.wrap').appendTo($('.box')) //修改了原有的html结构
+
+     
+
+        //动画
+        //animate() 自定义动画
+        //参一:执行动画的css属性
+        //参二:动画的执行时间
+        //参三:回调函数:动画执行完毕后再执行
+        $('.box').animate({
+            opacity:0
+        },'slow',function(){
+            alert('动画执行完毕')
+        })
+
+        //添加相邻兄弟元素
+        //给wrap插入xia一个新建兄弟元素div
+        $('.wrap').after('<div class= "after">下一个</div>')
+        //给wrap插入上一个新建兄弟元素div
+        $('.wrap').before('<div class= "beforw">上一个</div>')
+    </script>
+</body>
+
+</html>

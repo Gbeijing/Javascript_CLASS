@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+    <style>
+        /* .box {
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+        } */
+    </style>
+</head>
+
+<body>
+    <button> 显示</button>
+    <div class="box"></div>
+    <script>
+        $(window).on('load', function () {
+            //1.初始化box的css样式
+            $('.box').css({
+                width: '100px',
+                height: '100px',
+                background: 'red'
+            });
+
+            //给button绑定点击事件
+            $('button').on('click',function(){
+                //toggle()设置元素显示隐藏;取反
+                $('.box').toggle();
+            })
+        })
+        //jquery 方法封装现成的 只要知道怎么用
+    </script>
+</body>
+
+</html>

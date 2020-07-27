@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <div class="content">
+        <p>我是内容</p>
+    </div>
+    <script src="./jquery-3.4.0.js"></script>
+    <script>
+        $('p').on('click', function () {
+            //等淡入结束后在删除
+            $(this).fadeOut(500, function () {
+                $(this).remove()
+            })
+
+        })
+        $('input[type=text]').on('keydown', function (e) {
+            if (e.keyCode == 13) {
+                // console.log($('input[text=text]').val());
+                //val()获取和设置input的value值
+                //==>没有参数获取  有参数设置
+                var val = $('input[type=text]').val();
+                var p = `<p>${val}</p>`;
+                p = $(p).css({ display: 'none' });
+                // console.log(p);
+
+                var res = $('.content').append(p)
+                //插入p有动画效果
+                $(p).fadeIn(1000);
+                $('input[type=text]').val('');
+
+                //获取所有的p  
+                // $('p')选中已经存在的所有p,存在多次绑定了同一个实践.导致实践处理函数后多次触发
+                // 优化:$(p)只是给当前插入p绑定点击事件
+                //===>初始化的不会被选中
+                $(p).on('click', function () {
+                    //等淡入结束后在删除
+                    $(this).fadeOut(500, function () {
+                        $(this).remove()
+                    })
+
+                })
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

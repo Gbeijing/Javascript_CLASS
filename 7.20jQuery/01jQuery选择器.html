@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+    <div id="box"></div>
+    <script>
+        //html元素返回jQuery对象
+        //注意不是DOM对象
+        //=====>不能和直接使用dom下api的
+        var wrap = $('.wrap')
+        console.log(wrap);
+        var box = $('#box')
+        console.log(box);
+        // bug
+        // box.style.height = '100px'  ====>错误
+
+        // 将jQuery对象变为DOM对象===>目的是为了使用API
+        box = box[0]
+        console.log(box);  //dom对象
+
+        //将dom对象变为jQuery对象
+        var res = $(box);  //jQuery对象
+        console.log(res);
+
+        // $()  参数:css选择器 或者 dom对象
+        // 作用一:选中html元素返回jq对象
+        // 作用二:将dom对象变为jq对象
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">我是被删除</div>
+        <p>我是用来被删除的</p>
+    </div>
+    <script>
+        //替换 a.replaWith(b)
+        //把a替换成b
+        $('.box').replaceWith('<h1>kjdf</h1>')
+        //删除
+        //a.empty() //删除a的所有子节点
+        //用途:清空所有标签
+        $('.wrap').empty()
+
+        //把p删除
+        $('.wrap>p').remove()
+    </script>
+</body>
+
+</html>

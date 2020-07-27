@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            margin: 10px auto;
+        }
+
+        .left img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .right {
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list"></ul>
+    <script>
+          $.ajax({
+              url:"http://localhost:3000",
+              method:'get',
+              data:{},
+              dataType:'JSON',
+              success:function(data){
+                  console.log(data)
+                //   var res = JSON.parse(data)
+                 var {artists } = data;
+                 $.each(artists,function(index,item){
+                     console.log(index,item)
+                     var {name,img1v1Url} = item
+                     var tmp = `<li>
+                    <div class="left">
+                      <img src="${img1v1Url}" alt="">
+                    </div>
+                    <div class="right">
+                        <span>${name}</span>
+                 </div>
+                      </li>`
+            $('#list').append(tmp)
+                 })
+
+              }
+          })
+      </script>
+</body>
+
+</html>
