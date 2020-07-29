@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../7.20jQuery/jquery-3.4.0.js"></script>
+</head>
+
+<body>
+   <script>
+       function ajax(url,callback){
+           return new Promise((resolve,resject)=>{
+               var xhr =new XMLHttpRequest();
+               xhr.open('get',url);
+               xhr.send();
+               xhr.onreadystatechange =(res)=>{
+                   resolve(res);    
+               }
+           })
+       };
+    //    ajax('/a').then(res=>{
+    //        return ajax('/b')
+    //    }).then(res=>{
+    //        return ajax('/b')
+    //    }).then(res=>{
+    //        console.log('ccc');
+    //    })
+
+       ajax('http://vebcoder.cn:9527/api/goodList').then(res=>{
+           console.log('请求成功,等商品列表成功后获取详情');
+           console.log(res);
+           return ajax('http://vebcoder.cn:9527/api/detail?goodId=1')
+       }).then(res=>{
+           console.log('获取详情成功');
+           console.log(res);
+       }).catch(err=>{
+        console.log("出错了", err);
+       })
+   </script>
+</body>
+
+</html>

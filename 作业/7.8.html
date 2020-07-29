@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="color" value="blue">蓝色</button>
+    <button class="color" value="yellow">黄色</button>
+    <button class="color" value="green">绿色</button>
+    <button class="color" value="red">红色</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <button class="change">点我换颜色</button>
+        <p class="txt">我的颜色在变</p>
+    </div>
+    <script>
+        var btns = document.querySelectorAll('.color');
+        var btnChange = document.querySelector('.change');
+        var txt = document.querySelector('.txt');
+
+        for (var i = 0; i < btns.length; i++) {
+            (function () {
+                var val = btns[i].value
+                var x = i
+                btns[x].onclick = function () {
+                    //添加样式之前先清空所有的button样式,回到初始值
+                    for (var j = 0; j < btns.length; j++){
+                        btns[j].style = ''
+                    }
+                    btns[x].style.backgroundColor = val; 
+                    btnChange.onclick = function () {
+                        txt.style.color = val
+                    }
+                }
+            })()
+        }
+
+    </script>
+</body>
+
+</html>

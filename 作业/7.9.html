@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../作业/images/font_1866775_ijg6h6c47on/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .eva {
+            position: absolute;
+            display: none;
+        }
+
+        .show {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="iconfont icon-wujiaoxing "></span>
+        <span class="iconfont icon-wujiaoxing"></span>
+        <span class="iconfont icon-wujiaoxing"></span>
+        <span class="iconfont icon-wujiaoxing"></span>
+        <span class="iconfont icon-wujiaoxing"></span>
+    </div>
+    <p class="eva ">差</p>
+    <p class="eva ">不错</p>
+    <p class="eva ">一般</p>
+    <p class="eva">满意</p>
+    <p class="eva ">很满意</p>
+
+    <script>
+        // var span = document.querySelectorAll('.iconfont')
+        // span = [...span]
+        // var eva = document.querySelectorAll('.eva')
+        // for (var i = 0; i < span.length; i++) {
+        //     (function () {
+        //         var x = i
+        //         span[x].onclick = function () {
+        //             for (var j = 0; j < span.length; j++) {
+
+        //                 eva[j].className = 'eva'
+        //                 if (j > x) {
+        //                     span[j].style.color = ''
+        //                 } else {
+        //                     span[j].style.color = 'red'
+        //                 }
+        //             }
+        //             span[x].style.color = 'red'
+        //             eva[x].className = 'eva show'
+        //         }
+        //     })()
+        // }
+        // var span = document.querySelectorAll('.iconfont');
+        // span = [...span];
+        // var eva = document.querySelectorAll('.eva');
+        
+        // for (var i = 0; i < span.length; i++) {
+        //     (function () {
+        //         var x = i
+        //         var length = span.length
+        //         span[x].onclick = function () {
+        //             for (var j = 0; j < i; j++) {
+        //                 span[i].style.color = 'red'
+        //                 eva[j].className = 'eva'
+        //             }
+        //             span[x].style.color = 'red'
+        //             eva[x].className = 'eva show'
+        //         }
+        //     })()
+        // }
+
+        var span = document.querySelectorAll('.iconfont')
+        span = [...span]
+        var eva = document.querySelectorAll('.eva')
+        for (var i = 0; i < span.length; i++) {
+            (function () {
+                var x = i
+                span[x].onclick = function () {
+                    for (var j = 0; j < span.length; j++) {
+                        if(j<x){
+                            span[j].style.color = 'red'
+                        }else{
+                            span[j].style.color = ''
+                        }
+                        eva[j].className = 'eva'
+                    }
+                    span[x].style.color = 'red'
+                    eva[x].className = 'eva show'
+                }
+            })()
+        }
+    </script>
+</body>
+
+</html>

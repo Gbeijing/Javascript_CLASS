@@ -1,0 +1,16 @@
+{
+  "id": "1866775",
+  "name": "icon-picture",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10724769",
+      "name": "wujiaoxing1",
+      "font_class": "wujiaoxing",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      .box{
+          width: 500px;
+          height: 300px;
+          position: relative;
+          margin: 0 auto;
+          overflow: hidden;
+      }
+      .boxList{
+          width: 3500px;
+          height: 100%;
+          border: 1px solid #000;
+          position: absolute;
+          top: 0;
+          left: -500px;
+          transition: 0.5s;
+      }
+      .boxList>div{
+          width: 500px;
+          height: 300px;
+          float: left;
+      }
+      .ln{
+          width: 40px;
+          height: 50px;
+          background: rgba(0,0,25,0.5);
+          color: white;
+          position: absolute;
+          top: 50%;
+          margin-top: -25px;
+          font-size: 30px;
+          text-align: center;
+          line-height: 40px;
+          cursor: pointer;
+      }
+      .ln:hover{
+          background: rgba(200,20,125,0.5);
+      }
+      .last{
+          left: 0;
+      }
+      .next{
+          right: 0;
+      }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="boxList">
+        <div style="background: chartreuse">5</div>
+        <div style="background: #00b3ff">1</div>
+        <div style="background: #a200ff">2</div>
+        <div style="background: yellow">3</div>
+        <div style="background: red">4</div>
+        <div style="background: chartreuse">5</div>
+        <div style="background: #00b3ff">1</div>
+    </div>
+    <div class="ln last">&lt;</div>
+    <div class="ln next">&gt;</div>
+</div>
+<script>
+    var boxList = document.getElementsByClassName('boxList')[0];
+    var boxChi = boxList.children;
+    var len = boxChi.length;
+    var lasts = document.getElementsByClassName('last')[0];
+    var nexts = document.getElementsByClassName('next')[0];
+    console.log(nexts)
+    var num = 1;
+
+    nexts.onmousedown = function () {
+        if (num==len-2){
+            boxList.style.transition = '0s';
+            num=0;
+            boxList.style.left = num*-500+"px";
+        }
+    };
+    nexts.onmouseup = function(){
+        num++;
+        boxList.style.left = num*-500+"px";
+        boxList.style.transition = '0.5s';
+    };
+
+    lasts.onmousedown = function () {
+        if (num==0){
+            boxList.style.transition = '0s';
+            num=len-2;
+            boxList.style.left = num*-500+"px";
+        }
+    };
+    lasts.onmouseup = function(){
+        num--;
+        boxList.style.left = num*-500+"px";
+        boxList.style.transition = '0.5s';
+    };
+</script>
+</body>
+</html>

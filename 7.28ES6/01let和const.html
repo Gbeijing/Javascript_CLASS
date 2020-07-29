@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+    <script>
+        // console.log(a);
+        // console.log(b);      //暂时性死区
+        // var a ='123';
+        // let b ='你没有定义'   //在同一个作用域中,不能命名相同的变量
+
+
+        {
+            let d = 'dddddd'    //d的执行环境为块级作用域
+            console.log(d);
+        }
+        
+
+        //块级作用域之间也有层级关系
+        {
+            let b = 'aaaaa'
+            console.log(b);
+            {
+                let b = 'bbb';
+                console.log(b);
+            }
+        }
+    </script>
+</body>
+</html>

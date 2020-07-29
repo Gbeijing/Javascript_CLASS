@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <select name="" id="cities">
+            <option value="">请选择所在省</option>
+        </select>
+        <select name="" id="areas">
+            <option value="">请选择所在市</option>
+        </select>
+    </form>
+    <script src="./area.js"></script>
+    <script>
+        console.log(area)
+        var cities = document.querySelector('#cities')
+        var areas = document.querySelector('#areas')
+        var option = document.querySelector('option')
+        // console.log(cities)
+        var province = []
+        for (var x in area) {
+            province.push(x)
+            // var county = area[x]
+            // console.log(area[x])
+        }
+        // console.log(province)
+        // console.log(county )
+        for (var i = 0; i < province.length; i++) {
+            var res =
+                cities.options.add(new Option(province[i]));
+        }
+        var res = province.length
+        console.log(res)
+        cities.onchange = function () {
+            console.log('111111111')
+            for (var x in area) {
+                var county = area[x]
+                var counties = []
+                console.log(county,'111111111111')
+                for (var y in county) {
+                    counties.push[y]
+                    console.log(counties)
+                }
+                
+            }
+            console.log(county, '-----------')
+            for (var y in county) {
+                counties.push[y]
+                for (var j = 0; j < county.length; j++) {
+                    console.log('44444444444444')
+                    areas.options.add(new Option(counties[j]));
+                }
+                console.log(counties)
+            }
+
+            //     areas.options.length = 1;
+            //     areasCount = this.areasCount - 1;
+            //     if(areasCount>-1){
+            //         for(var i = 0; i < area[areasCount].length; i++){
+
+            //             areas.options.add(new Option(county[areasCount][i]))
+            //         }
+            //     }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>我说你是01</h1>
+    <h1>我说你是02</h1>
+    <h1>我说你是03</h1>
+    <h1>我说你是04</h1>
+    <h1>我说你是05</h1>
+    <script>
+        var hs = document.querySelectorAll('h1');
+        for (let i = 0; i < hs.length; i++) {
+            hs[i].onclick = function () {
+                hs[i].style.color = 'red'
+            }
+        }
+      
+    //你如何解决变量污染:  闭包 let
+
+    //说一下 let 和const的理解? 
+    </script>
+</body>
+
+</html>

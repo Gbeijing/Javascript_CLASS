@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let obj ={
+        //     name: 'jjj',
+        //     age:'ss'
+
+        // }
+        // let{name ,age} =obj;
+        // console.log(name,age)
+
+        //解构赋值  要么是对象要么是数组,其他类型报错
+        //从对象和数组中取值的另种方式
+        // let [one,two,[a,b,[c]]]=[1,2,[1,2,[5]]]
+        // console.log(one,two,a,b,c);
+//**********************************************************
+        // let arr =[1,2,3,{age:12,name:'qw'}]
+        // let [a, b, c, { age, name }] = [1, 2, 3, { age: 12, name: 'qw' }]
+        // console.log(a, b, c, age, name );
+
+
+        // let obj ={a:{c:11},b:[1,2]}
+        let {a:{c:num},b:[a,g]} ={a:{c:11},b:[1,2]}
+        
+    </script>
+</body>
+
+</html>

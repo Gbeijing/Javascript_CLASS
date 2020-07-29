@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        span {
+            display: inline-block;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            vertical-align: middle;
+            font-weight: 600;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- <span class="day"></span>
+        <span>天</span> -->
+        <span class="hour"></span>
+        <span>时</span>
+        <span class="minute"></span>
+        <span>分</span>
+        <span class="second"></span>
+        <span>秒</span>
+    </div>
+    <script>
+        var day = document.querySelector('.day')
+        var hour = document.querySelector('.hour')
+        var minute = document.querySelector('.minute')
+        var second = document.querySelector('.second')
+        // second = 59
+        second.innerHTML = 59
+        minute.innerHTML = 59
+        hour.innerHTML = 1
+        var timer = setInterval(function () {
+            second.innerHTML--
+            if (second.innerHTML < 10) {
+                if(hour.innerHTML=="00" && minute.innerHTML == "00"&& second.innerHTML == "00"){
+                            console.log('1111111111111');
+                            clearInterval(timer)
+                            return   
+                        } 
+                        
+                second.innerHTML = "0" + second.innerHTML
+                if (second.innerHTML < "00") {
+                    second.innerHTML = 59
+                    minute.innerHTML--
+                    if (minute.innerHTML < 10) {
+                        minute.innerHTML = "0" + minute.innerHTML
+                    }
+                    if (minute.innerHTML < "00") {                        
+                        minute.innerHTML = 59
+                       
+                        hour.innerHTML--
+                        if (hour.innerHTML < 10) {
+                            hour.innerHTML = "0" + hour.innerHTML
+                        }    
+                       
+                    }
+                   
+                }
+                if( hour.innerHTML<="00"){
+                    hour.innerHTML="00"
+                    }
+            }
+        }, 1)
+
+
+    </script>
+</body>
+
+</html>

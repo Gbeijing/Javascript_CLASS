@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            width: 500px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .wrapLong {
+            width: 3500px;
+            height: 300px;
+            /* border: 1px solid #000; */
+            position: absolute;
+            top: 0;
+            left: -500px;
+            transition: 1s;
+
+        }
+
+        .wrap img {
+            width: 500px;
+            height: 300px;
+            float: left;
+        }
+
+        #pre,
+        #next {
+            width: 30px;
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            line-height: 70px;
+            position: absolute;
+            z-index: 100;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            /* cursor: pointer; */
+        }
+
+        .left {
+            left: 0px;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="wrapLong">
+            <img src="./images/3.jpg" alt="">
+            <img src="./images/2.jpg" alt="">
+            <img src="./images/3.jpg" alt="">
+            <img src="./images/1.jpg" alt="">
+            <img src="./images/2.jpg" alt="">
+            <img src="./images/3.jpg" alt="">
+            <img src="./images/2.jpg" alt="">
+        </div>
+        <div id="pre" class="control-btn left"> &lt;</div>
+        <div id="next" class="control-btn right"> &gt;</div>
+    </div>
+
+    <script>
+        
+        var imgs = document.querySelectorAll('.wrap>img');
+        var next = document.querySelector('#next');
+        var pre = document.querySelector('#pre');
+        var wrap = document.querySelector('.wrap')
+        var wrapLong = document.querySelector('.wrapLong')
+        var wrapImg = wrapLong.children //获得几个个图片的集合的对象
+        var len = wrapImg.length
+        console.log(len)  //获得共有几个图片 7
+        console.log(wrapImg)
+        var num = 0
+        next.onmousedown = function () {
+            if (num == len - 2) { 
+                wrapLong.style.transition = '0s'
+                num = 0
+                wrapLong.style.left = num * -500 + 'px'
+            }
+        };
+        next.onmouseup = function () {
+            num++;
+            wrapLong.style.left = num * -500 + "px";
+            wrapLong.style.transition = '0.5s';
+        }
+        pre.onmousedown = function () {
+            if (num == 0) {
+                wrapLong.style.transition = '0s';
+                num = len - 2;
+                wrapLong.style.left = num * -500 + "px";
+            }
+        };
+        pre.onmouseup = function () {
+            num--;
+            wrapLong.style.left = num * -500 + "px";
+            wrapLong.style.transition = '0.5s';
+        };
+    </script>
+</body>
+
+</html>
