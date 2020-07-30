@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+            v-if 是vue的条件渲染
+            v-else 是vue的条件渲染
+            类似 if else
+
+            v-if="表达式/变量"====>" "中的内容最终用的是true false
+            true 创建HTML标签
+            false 销毁HTML标签 用注释代替标签
+         -->
+        <h1 v-if='flag'>李静</h1>
+        <h1 v-else>顾坤</h1>
+        <button @click ="changeH1">切换</button>
+        <!-- 
+            if elseif else ;if else
+         -->
+         <div>
+             <p v-if="count===0">你好啊</p>
+             <p v-else-if="count===1">我好</p>
+             <p v-else-if="count===2">她好</p>
+             <p v-else="count===3">大家好</p>
+         </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>    
+        var app =new Vue({
+            el:'#app',
+            data:{
+                flag:true,
+                count:0
+            },
+            methods:{
+                changeH1:function(){
+                    this.flag=!this.flag
+                }
+            }
+        })
+    </script>
+</body>
+</html>

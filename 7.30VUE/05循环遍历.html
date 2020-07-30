@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+            v-for='i in x' 循环 i从1开始 循环x次
+         -->
+        <!-- <h5 v-for='i in 5'>我是内容{{i}}</h5>
+        <h6 v-for='i in count'>循环次数{{i}}</h6> -->
+
+      
+        <!-- vue的循环嵌套 -->
+        <!-- <div v-for='i in 3'>
+            <span v-for ='x in 4'>{{'i='+''+i+'x='+x }}</span>
+        </div> -->
+
+          <!-- 99乘法表 -->
+        <div v-for='j in 9'>            
+            <span v-for='y in j'>{{y+'*'+j+'='+j*y+'         '}}</span>
+        </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                count:3
+            }
+        })
+    </script>
+</body>
+</html>

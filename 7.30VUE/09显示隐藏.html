@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-show="true">你看不到我</h1>
+        <h1 v-show="false">你看不到我</h1>
+        <!-- 
+            面试题:
+            v-if和v-show区别是什么?
+            v-if是注释节点,删除节点
+            v-show是设置display:none,需要频繁控制元素显示隐藏,用v-show不用v-if减少操作dom,提高性能
+            v-if 进入新页面 去除公共的标签样式
+        -->
+    </div>
+   
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 注意:true false 不是变量 而是布尔值 -->
+        <h1 v-if="false">内容</h1>
+        <h1 v-if="true">内容</h1>
+        <dd>
+            <!-- 在标签上声明的变量;作用域为元素内部或者子集
+                 在vue对象声明的变量作用域为整个app模板
+                 - data  methods computed watcher ....
+            -->
+            <!-- 
+                可以通过v-if v-for控制循环次数
+             -->
+        <dt v-for="(item,index) in list" v-if="item.age>25">
+            姓名:{{item.name}}
+            年龄:{{item.age}}
+        </dt>
+        </dd>
+        <div>
+            <!-- 
+            如何增大index的作用域,不会影响 html结构
+            template vue组件:空标签;目的 增大元素内部声明变量的作用域
+            注意:template在vue-cli中不能使用;用transtion标签代替
+             -->
+             <template v-for ="(item,index) in arr">
+                 <span>{{index}}</span>
+                 <span>{{item}}</span>
+             </template>
+        </div>
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { name: 'aaa', age: 29 },
+                    { name: 'aaa', age: 27 },
+                    { name: 'aaa', age: 25 },
+                    { name: 'aaa', age: 26 },
+                    { name: 'aaa', age: 20 }
+                ],
+                arr:['111','222','333']
+            }
+        })
+    </script>
+</body>
+
+</html>

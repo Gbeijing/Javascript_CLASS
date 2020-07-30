@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 通过v-html插入的元素 指令是失效的
+            1.通过指令操作dom元素
+            2.指令失效后,怎么操作dom?====>在vue中直接操作dom(有几种方式)
+            3.只能通过mounthd函数操作dom
+        -->
+       <section v-html ="tem"></section>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            data:{
+                tem:` <div v-bind:class='active' name='bbb'></div>`,
+                active:'aa'
+            },
+            mounted(){
+                console.log('aaa');
+                var div = document.querySelector('div[name=bbb]')
+                console.log(div);
+                this.className=this.active
+            }
+        })
+    </script>
+</body>
+</html>

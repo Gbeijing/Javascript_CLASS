@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- v-on:事件名='事件处理函数' 
+        简写:@事件名="事件处理函数"
+
+        特殊情况:
+        1.阻止浏览器默认行为:事件冒泡  指定按键...修饰符
+        @事件名.修饰符="事件处理函数"
+    -->
+    <div id="app">
+        <form @click="clickHandle">
+            <input type="text" :value='ipt' @input="input" @keydown.enter.prevent.stop="keyHandle()">
+            <!-- eventNmae.prevent 阻止了浏览器器的默认事件 -->
+            <!-- eventNmae.stop 阻止了事件冒泡 -->
+            <!-- eventNmae.enter 只有按下enter才触发keydown事件 -->
+            <button @click.prevent.stop="submit">提交</button>
+        </form>
+        <!--表示只有e.target为div 才会触发aa 函数  -->
+        <div @click.self="aa">你的佛教</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                ipt: ''//input输入的内容
+            },
+            methods: {
+                submit: function (e) {
+                    // e.preventDefault()
+                    console.log(this.ipt);
+                },
+                input(e) {
+                    // console.log( e.target.value);//获取用户输入的内容,直接操作dom
+                    this.ipt = e.target.value
+                },
+                clickHandle() {
+                    console.log('ddsddd.dd')
+                },
+                keyHandle() {
+                    console.log(this.ipt);
+                },
+                aa(e) {
+                    // <font>我是呢哦</font>  问题:不能准确获取dom 元素 
+                    // .self 修饰符解决
+                    console.log(e.target);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

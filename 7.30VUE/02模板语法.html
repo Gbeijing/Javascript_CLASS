@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.渲染data数据 -->
+        <h1>{{msg}}</h1>
+        <!-- 2.可以写表达式 -->
+        <h2>{{1+1}}</h2>
+        <!-- 3.模板语法中可以进行计算(表达式) -->
+        <h3>{{flag?'陈顺你狠人啊':'王宇航你是啥'}}</h3>
+        <!-- 4.可以写函数执行 -->
+        <h4>{{init()}}</h4>
+        <!--  -->
+        <h5>{{'你是史蒂夫'}}</h5>
+        <!-- 插入html标签
+            v-html 是指令
+        -->
+        <div v-html = 'text'> </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        //实例化VUE对象
+        var app =new Vue({
+            el:'#app',//指定vue对象根模板
+            data:{//整个HTML数据都在data中
+                msg:'hello word',
+                flag:true,
+                text:`<em>我是一个HTML</em>`
+            },
+            methods:{//这里写定义的函数
+                init(){
+                    return '你好我来了'
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>  
+     <!-- 
+            class style
+            1: 动态值 对象或数组；常用 对象
+            2：class 中 key 是要添加类名；value 作用 是否添加  key 
+            3：可以以变量方式存在；但是该变量必须赋值对象或者数组
+            4：style key 是 要设置的CSS 样式 value 是 css 属性的值；value 一般为变量
+            5：对象或者数组 ；一定是 逗号 分割 不是分号；
+         -->
+         <!-- 
+             常见错误
+             1：err: compiling template: 一定html 写错了
+             重点看  提示的波【浪线部】分
+             2:  Failed to execute 'setAttribute' on 'Element': '：style' is not a valid attribute name.
+               指定到某一个属性 绑定错误
+             3: Property or method "change" is not defined    
+               在 data  methods computed watcher...中 不存在 vue 变量            
+          -->
+    <div id="app">
+       <h1 :style="{color:color,fontSize:size+'px'}">我是通过style设置样式</h1> 
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var  app = new Vue({
+            el:'#app',
+            data:{
+                color:'blue',
+                size:20
+            }
+        })
+    </script>
+</body>
+
+</html>    
