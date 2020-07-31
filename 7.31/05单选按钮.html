@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            单选:
+            1.如何获取用户选中的哪一个;以及选择的[内容]是什么;
+                内容就是value的值
+            2.那个属性是必须写的?
+         -->
+        <!-- 当有东西被勾选是,v-model就是用户勾选的value值 -->
+        <input type="radio" id="one" v-model="radioVal" value="one">
+        <label for="one">One</label>
+        <input type="radio" id="two" v-model="radioVal" value="two">
+        <label for="two">Two</label>
+        <input type="radio" id="three" v-model="radioVal" value="three">
+        <label for="two">Two</label>
+        <h1>{{radioVal}}</h1>
+        <button @click="getRadio">获取你选择的是什么</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                radioVal:''//表示用户选择的input 并用来存储input的值
+            },
+            methods:{
+                getRadio(){
+                    console.log(this.radioVal);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
+<!-- 
+    vue demo 步骤
+    1 确定html 解构
+    2 导入 vue 化vue 对象
+    3 将html 内容 变为 data 中数据
+    4 将data 中数据及逆行遍历徐然  --- >完成也面的初始化效果
+    5 拆分用户的行为 ；分别实现功能。
+      问题：如何通过data 中  实现效果交互
+    6 变量或者数据不够，创建变量；全局 data 非全局 函数里面  
+ -->

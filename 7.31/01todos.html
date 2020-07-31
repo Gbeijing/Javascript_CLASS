@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        #app {
+            width: 400px;
+            height: 300px;
+            background-color: cyan;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .txt {
+            width: 330px;
+            height: 40px;
+            border-radius: 10px;
+            outline: none;
+            /* margin: 0 auto; */
+            padding: 0 20px;
+            border: 1px solid transparent;
+            /* margin-left: 50px; */
+            margin-top: 20px;
+            float: left;
+        }
+
+        .btn {
+            width: 60px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            outline: none;
+            float: right;
+            margin-top: 20px;
+
+        }
+
+        .del {
+            width: 60px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            outline: none;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" placeholder="请输入菜单" :class="txt" v-model="ipt">
+        <button :class="btn" @click.prevent.stop="add">添加</button>
+        <ul>
+            <li @click.prevent.stop="deleteA(item.id)" v-for="(item,index) in list"  :data-id="item.id">
+                {{item.name}}</li>
+        </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                txt: "txt",
+                btn: "btn",
+                del: "del",
+                ipt: '',
+                list:[],
+                id:0
+            },
+            methods: {
+                add (){
+                    let item = {
+                        name: this.ipt,
+                        id: this.id++
+                    }
+                    this.list.push(item),
+                    this.ipt=''//每次添加后 方框里都清除
+                },
+                deleteA(id){
+                    this.list = this.list.filter(item=>{
+                        return item.id !==id
+                    })
+                },              
+            }
+        })
+    </script>
+</body>
+
+</html>

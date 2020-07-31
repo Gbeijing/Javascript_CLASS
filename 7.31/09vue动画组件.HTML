@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>就这玩意 不用怪拉到</title>
+    <style>
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.5s;
+      }
+      .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+      }
+      /* 可以设置不同的进入和离开动画 */
+      /* 设置持续时间和动画函数 */
+      .slide-fade-enter-active {
+        transition: all 0.3s ease;
+      }
+      .slide-fade-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+      }
+      .slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+        transform: translateX(10px);
+        opacity: 0;
+      }
+
+      .bounce-enter-active {
+        animation: bounce-in 0.5s;
+      }
+      .bounce-leave-active {
+        animation: bounce-in 0.5s reverse;
+      }
+      @keyframes bounce-in {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="toggle">toggle</button>
+      <!-- 
+          transiton 过度组件
+          name 赋值 执行动画的类名； fade slide-fade bounce
+       -->
+      <!-- <transition name="fade">
+        <div class="box" v-if="flag"></div>
+      </transition> -->
+      <!-- <transition name="slide-fade">
+        <div class="box" v-if="flag"></div>
+      </transition> -->
+      <transition name="bounce">
+        <div class="box" v-show="flag"></div>
+      </transition>
+    
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          flag: true,
+        },
+        methods: {
+          toggle() {
+            this.flag = !this.flag;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

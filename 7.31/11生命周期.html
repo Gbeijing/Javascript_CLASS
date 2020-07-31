@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{msg}}</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      var app = new Vue({
+        data: {
+          msg: "王宇航",
+          list: [],
+        },
+        methods: {
+          init() {
+            this.msg = "顾坤";
+          },
+        },
+        beforeCreate: function () {
+          // 可以 做loading
+          console.log("初始化之前");
+        },
+        created() {
+          var dom = document.querySelector("h1");
+          console.log(dom);
+          // 这里一般做页面初始化处理；初始化获取数据
+          console.log("页面初始化");
+        },
+        beforeMount() {
+          var dom = document.querySelector("h1");
+          console.log(dom);
+          console.log("数据渲染前");
+        },
+        mounted() {
+          // 这里可以访问dom
+          // 在这里操作dom
+          var dom = document.querySelector("h1");
+          console.log(dom);
+          console.log("数据渲染完毕");
+          this.init();
+        },
+        beforeUpdate() {
+          console.log("数据跟新前");
+        },
+        updated() {
+          // 当data 中数据更新的时候；触发update 函数
+          console.log("数据更新完毕");
+        },
+        distory(){
+            // 这里清空所有的timer  
+            // 销毁时候触发 离开页面是否触发
+        }
+      });
+      app.$mount("#app"); // el  指定根元素
+    </script>
+  </body>
+</html>

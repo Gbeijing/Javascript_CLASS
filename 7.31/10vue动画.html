@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue自定义动画</title>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css" />
+    <style>
+        .wyh {
+            animation: wyh 2s linear;
+        }
+
+        @keyframes wyh {
+            0% {
+                transform-origin: right bottom;
+                opacity: 1;
+            }
+
+            0%,
+            to {
+                -webkit-transform-origin: right bottom;
+            }
+
+            to {
+                transform-origin: right bottom;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="flag = !flag">toggle</button>
+        <!-- 
+          使用vue 自己写动画 绑定类名实现效果
+          enter-active-class="自定义动画类名" 显示时候；动画
+          leave-avtive-class=" " 隐藏的动画
+
+          :duration="{enter:显示时间,leave:隐藏动画时间}" 动画执行事件
+       -->
+        <!-- <transition name="custom-classes-transition" enter-active-class="animated flipOutX"
+            leave-active-class="animated rotateOutDownLeft">
+            <h1 v-if="flag">我怕时间哦文明</h2>
+        </transition> -->
+
+        <transition :duration="{enter:500,leave:2000}" enter-active-class="wyh" leave-active-class="wyh">
+            <h1 v-if="flag">我怕时间哦文明</h1>
+        </transition>
+       
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                flag: true,
+            },
+            methods: {},
+        });
+    </script>
+</body>
+
+</html>

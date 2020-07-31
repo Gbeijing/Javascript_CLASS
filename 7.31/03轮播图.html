@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+        #app{
+            width: 100%;
+            height: 700px;
+            position: relative;
+        }
+        .box{
+            width: 600px;
+            height: 400px; 
+            margin: 0 auto;
+            /* background-color: cyan; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .box img{
+            width: 100%;
+            height: 100%;
+        }
+        .pre{
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translate(0,-50%);
+            text-align: center;
+            line-height: 50px;
+            background-color:cyan;
+            width: 50px;
+            height: 50px;
+            color: black;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        .next{
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translate(0,-50%);
+            text-align: center;
+            line-height: 50px;
+            background-color:cyan;
+            width: 50px;
+            height: 50px;
+            color: black;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="box">
+            <img  :src="item"  v-for="(item,index) in  imgsrc" v-show="num==index">
+            <div class="pre" @click="pre">&lt;</div>
+            <div class="next"  @click="next">&gt;</div>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            data:{
+                imgsrc:["../images/1.jpg","../images/2.jpg","../images/3.jpg"],
+                num:0,
+                // flag:true
+            },
+            methods:{
+                pre:function(){    
+                    if(this.num==0){
+                        this.num=3
+                    }     
+                    this.num--      
+                },
+                next:function(){
+                    if(this.num==2){
+                        this.num=-1
+                    }     
+                    this.num++ 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

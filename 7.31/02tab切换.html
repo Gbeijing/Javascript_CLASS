@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-for="(item,index) in list" :style="{color: index==currentIndex?'blue':'black'}"  @click="clickHandle(index)">{{item}}</h1>
+        <p >{{ tab[currentIndex] }}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    '我是一个文字',
+                    '我是俩一个文字',
+                    '我是俩一个文字'
+                ],
+                currentIndex:0, // 当前被点击的索引
+                tab:[
+                    1,2,4
+                ]
+            },
+            methods:{
+                clickHandle(index){
+                    console.log(index)
+                    this.currentIndex = index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

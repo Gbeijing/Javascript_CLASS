@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: cyan;
+            transition: all 2s;
+        }
+        .active{
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='clickHandle' >点击效果</button>
+        <div :class="{box:true,active:flag}" @transitionend ="transitionend"></div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+               flag:false
+            },
+            methods:{
+                clickHandle(){
+                    this.flag=true
+                },
+                transitionend(){
+                    console.log('过度结束');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

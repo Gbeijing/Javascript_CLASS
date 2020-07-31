@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <dd>
+            <dt>
+                <input type="checkbox"  @change="all" v-model='allCheck'>
+                <span>{{txt}}</span>
+                <input type="checkbox"  @change="reveres">
+                <span>反选</span>
+            </dt>
+            <dt v-for='(item,index) in list'>
+                <input type="checkbox" v-model='checkArr' :value='item.id' @click="changeDo">
+                <span>{{item.name}}</span>
+            </dt>
+        </dd>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: '11', name: '11' },
+                    { id: '22', name: '22' },
+                    { id: '33', name: '33' },
+                    { id: '44', name: '44' },
+                    { id: '55', name: '55' },
+                    { id: '66', name: '66' },
+                ],
+                checkArr: [],
+                txt: "全选",
+                allCheck: false
+            },
+            methods: {
+               all(){
+                   this.checkArr=[]
+                if(this.allCheck){
+                    this.list.forEach((item)=>{
+                        this.checkArr.push(item.id)
+                    })
+                    this.txt='全不选'
+                }else{
+                    this.txt='全选'
+                }
+               },
+               reveres(){
+                   let res =[]
+                   var flag=true
+                   for(var i=0;i<this.list.length;i++){
+                       for(var j=0;j<=this.checkArr.length;j++){
+                        if(this.list[i].id==this.checkArr[j]){
+                            flag=true;
+                            break
+                        }else{
+                            flag =false
+                        }
+                       }
+                       if(!flag){
+                           res.push(this.list[i].id)
+                       }
+                   }
+                   this.checkArr=res
+                this.allChangeDo()
+               },
+               changeDo(){
+                this.allChangeDo()
+               },
+               allChangeDo(){
+                if(this.checkArr.length<this.list.length){
+                        this.allCheck=false,
+                        this.txt ='全选'
+                   }else{
+                         this.allCheck=true,
+                        this.txt ='全选'
+                   }
+               }
+            }
+        })
+    </script>
+</body>
+
+</html>
