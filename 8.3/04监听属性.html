@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <button @click='destroyedHandle'>停止</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app= new Vue({
+            el:'#app',
+            data:{
+                msg:'ssss',
+                timer:null
+            },
+            methods:{ 
+                destroyedHandle(){
+                    // 作用销毁Vue
+                    this.$destroy()
+                }  
+                
+            },
+            created(){
+                setInterval(() => {
+                    this.msg+='aa'
+                },1000)
+            },           
+            desroyed(){
+                clearInterval(this.timer)
+            },
+             /*
+             * watch:监听属性,值,对象;
+             * key:别监听的变量;可以是data中,也可以是其他地方的
+             * 当被监听的msg发生变化是 函数触发
+            */
+            watch:{
+                // to是msg变化后的值,from是变化前的值
+                msg:function(to,from){
+                    console.log('变化了');
+                    console.log(from);
+                    console.log(to);
+                }
+            },
+            //需求某一个值需要随着另一个值得变化而变化
+            // 1.需要修改b的变化:通过监听b修改a=====>滥用watch
+            //
+            
+        })
+    </script>
+</body>
+</html>

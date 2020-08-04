@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- ref 绑定dom  this.$refs获取dom元素 -->
+        <h1 ref='h1'>我是一个内容</h1>
+        <div ref='msg'>{{msg}}</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'1111111'
+            },
+            mounted(){
+                let {h1,msg} = this.$refs;
+                console.log(h1);
+                console.log(msg);
+                let h =getComputedStyle(h1,null)['height']
+                let H =getComputedStyle(msg,null)['height']
+                console.log(this.$refs);
+                console.log(h,H);
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            3.如果没有template属性;这个就是vue模板,有template的话就会被覆盖;
+            将el指定的根模板(#app)编到template*中,并通过render渲染到页面中
+
+            注意:这里没有实现数据的响应式绑定{{msg}}是一个普通的字符串
+         -->
+         <!-- <h1>{{msg}}</h1>
+         <button @click='msgChang'>变更内容</button> -->
+    </div>
+   <script src="./vue.js"></script>
+   <script>
+       var app =new Vue({
+            el:'#app',  //== app.$mount('#app')
+            //    
+            template:`<div>
+                <h1>{{msg}}</h1>
+         <button @click='msgChang'>变更内容</button>
+                </div>`,
+            data:{//页面中所有数据
+                msg:'哈哈哈'
+            },
+            destroy(){
+                //销毁vue后 所有的事件绑定,计算属性都失效了
+                console.log('销毁了');
+            }
+
+       })
+   </script>
+</body>
+
+</html>
+<!-- 
+    render 
+    响应式数据 =====> 数据变化视图变化
+    虚拟dom
+
+    编译需要时间,所以会导致一下问题:
+        1.数据更新了,视图没更新;
+        2.有一些操作是渲染完dom在执行,问题是:没有dom先进行
+ -->

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{sum}}</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app= new Vue({
+            el:'#app',
+            data:{
+               x:1,
+               y:1,
+               z:2              
+            },
+            // z=x+y z随 x,y的变化而变化
+            // watch:{
+            //     x:function(val){
+            //         console.log('x变了');
+            //         this.z=val+this.y
+            //     },
+            //     y:function(val){
+            //         this.z=val+this.x
+            //     },
+            // },
+            //计算属性
+            computed:{
+                sum:function(){
+                    // console.log('1111');
+                    return this.x+this.y
+                }
+            },
+            created(){
+                setInterval(() => {
+                    this.x=this.x+1
+                }, 1000);
+            }
+            //需求某一个值需要随着另一个值得变化而变化
+            // 1.需要修改b的变化:通过监听b修改a=====>滥用watch
+            //
+        })
+            //watch和computed区别
+            //watch监听属性:可以监听vue某一个变量值的变化过程,当被监听的响应式数据发生变化时候,函数执行,注意:只能监听一个响应式数据
+            //computed 计算属性:函数方法体内部;有依赖响应式数据,当依赖的响应式数据发生变化时候,函数执行.注意:函数中,可以依赖多个响应式数据
+            //从执行程序:computed可以依赖多个;watch多个数据  多个函数 执行多个函数
+            //对于某一个响应式数据,需要随着多个响应式数据的变化而变化,应该使用computed,避免执行多余程序
+    </script>
+    <!-- 
+        computed和methods区别? ===>  缓存
+        computed和watch区别?====>依赖响应式的个数
+     -->
+</body>
+</html>

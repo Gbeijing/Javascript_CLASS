@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 @click='msgChange'>{{mag}}</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        //等待dom渲染完毕后在执行,目前只是为了更严谨
+        var app =new Vue({
+            el:'#app',
+            data:{
+                msg:'hello'
+            },
+            methods:{
+                msgChange(){
+                    setInterval(() => {
+                        this.msg='wwwew'
+                    }, 1000);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+<!-- 
+    解决元素
+    数据更新了,不能获取dom元素
+ -->
